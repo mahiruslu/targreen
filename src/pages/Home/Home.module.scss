@@ -1,17 +1,17 @@
 .home{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     text-align: center;
     width: 100%;
     min-height: 100vh;
+    background-image: url('../../assets/images/home-bg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
 
     // &_wrapper{
-    //     overflow: hidden;
-    //     background-image: src('../../assets/images/home-bg.png');
-    //     background-size: cover;
-    //     background-position: center;
     //     height: 900%;
     //     width: 90%; 
     //     display: flex;
@@ -20,6 +20,15 @@
     //     align-items: center;
 
     // }
+    h2{
+        width: 50%;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        text-shadow: #000 10px 10px 10px;
+    }
     &_top_container{
         display: flex;
         justify-content: center;
