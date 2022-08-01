@@ -62,3 +62,13 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .home{
+        background-attachment: scroll;
+        h2{
+            width: 90%;
+        }
+    }
+    
+}
