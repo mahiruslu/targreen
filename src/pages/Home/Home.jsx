@@ -10,7 +10,7 @@ function Home() {
       transition={{ duration: 1 }}
       className={Styles.home}
     >
-      <p>asda</p>
+      <h2>We take farming, irrigation, and spraying to the next level</h2>
     </motion.div>
   );
 }

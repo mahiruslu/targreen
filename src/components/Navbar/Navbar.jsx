@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import Styles from "./Navbar.module.scss";
 
 const MOBILE_MENU_WINDOW_WIDTH = 768;
 
-function Navbar() {
+function Navbar(props) {
+  const { isFixed, color } = props;
   // const navigation = useNavigate();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -45,26 +46,32 @@ function Navbar() {
         {!isMobile ? (
           <>
             <Link className={Styles.nav_item} to="/">
-              <span className={Styles.nav_item_title}>Anasayfa</span>
+              <span className={Styles.nav_item_title}>Home</span>
             </Link>
 
             <Link className={Styles.nav_item} to="/timeline">
-              <span className={Styles.nav_item_title}>Hakkımızda</span>
+              <span className={Styles.nav_item_title}>About Us</span>
             </Link>
 
             <Link className={Styles.nav_item} to="/blog">
-              <span className={Styles.nav_item_title}>Neler yapıyoruz</span>
+              <span className={Styles.nav_item_title}>Services</span>
             </Link>
 
             <Link className={Styles.nav_item} to="/contact">
-              <span className={Styles.nav_item_title}>Bize ulaşın</span>
+              <span className={Styles.nav_item_title}>Contact</span>
             </Link>
           </>
         ) : (
           <>
-            <div className={Styles.nav_item} onClick={handleMenuClick}>
-              <FontAwesomeIcon icon={faBars} size="2x" />
-            </div>
+            <motion.div
+              className={Styles.nav_item}
+              onClick={handleMenuClick}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <FontAwesomeIcon icon={!isOpen ? faBars : faXmark} size="2x" />
+            </motion.div>
           </>
         )}
       </div>
