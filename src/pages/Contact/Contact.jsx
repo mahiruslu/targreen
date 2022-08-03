@@ -82,7 +82,7 @@ function Contact() {
   return (
     <>
       <motion.div
-        initial={{ y: 100 }}
+        initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 1, bounce: true }}
         className={Styles.contact}

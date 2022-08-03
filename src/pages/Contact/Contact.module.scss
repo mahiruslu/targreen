@@ -174,8 +174,11 @@ scroll-behavior: smooth;
     .contact{
         flex-direction: column;
         &_left{
-            width: 100%;
+            min-width: 100%;
             min-height: 600px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
         }
         &_right{
             width: 100%;

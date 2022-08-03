@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import Styles from "./Navbar.module.scss";
+import classNames from "classnames/bind";
 
 const MOBILE_MENU_WINDOW_WIDTH = 768;
 
@@ -19,6 +20,7 @@ function Navbar(props) {
 
   const handleMenuClick = () => {
     setIsOpen(!isOpen);
+    setIsMobile(!isMobile);
   };
 
   useEffect(() => {
@@ -38,12 +40,16 @@ function Navbar(props) {
   }, [windowWidth]);
 
   return (
-    <div className={Styles.nav}>
+    <div
+      className={classNames(Styles.nav, {
+        [Styles.nav_open]: isOpen,
+      })}
+    >
       <Link to="/" className={Styles.nav_logo}>
         <span>targreen.</span>
       </Link>
       <div className={Styles.nav_links}>
-        {!isMobile ? (
+        {!isMobile && (
           <>
             <Link className={Styles.nav_item} to="/">
               <span className={Styles.nav_item_title}>Home</span>
@@ -61,16 +67,22 @@ function Navbar(props) {
               <span className={Styles.nav_item_title}>Contact</span>
             </Link>
           </>
-        ) : (
+        )}
+        {windowWidth < MOBILE_MENU_WINDOW_WIDTH && (
           <>
             <motion.div
               className={Styles.nav_item}
-              onClick={handleMenuClick}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ x: 200 }}
+              animate={{ x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <FontAwesomeIcon icon={!isOpen ? faBars : faXmark} size="2x" />
+              <label for="check">
+                <input type="checkbox" id="check" onClick={handleMenuClick} />
+                <span></span>
+                <span></span>
+                <span></span>
+              </label>
+              {/* <FontAwesomeIcon icon={!isOpen ? faBars : faXmark} size="2x" /> */}
             </motion.div>
           </>
         )}
