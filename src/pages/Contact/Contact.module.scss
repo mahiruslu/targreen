@@ -1,3 +1,154 @@
+@import "../../assets/styles/variables";
+
 .contact{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    
+    &_left{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        flex: 3;
+        height: 100%;
+        min-width: 400px;
+        background-color: #e5e5f7;
+        background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 40px ), repeating-linear-gradient( #16C17255, #16C172 );
+
+        &_middle{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+        }
+    }    
+
+    &_right{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex: 5;
+        height: 100%;
+
+        &_form{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            height: 80%;
+            transition: all .3s ease-in-out;
+            text-decoration: none;
+
+
+
+            &_item{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                text-align: center;
+                width: 40%;
+                gap: 20px;
+
+                label{
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    color: $base-color;
+                    text-decoration: none;
+                    transition: all .3s ease-in-out;
+                }
+
+                &_full{
+                    width: 90%;
+
+                }
+                &_right{
+                    float: right;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: flex-end;
+                    width: 95%;
+                    
+                }
+            }
+
+            input, textarea{
+                border: none;
+                -webkit-appearance: none;
+                width: 100%;
+                height: 40px;
+                border-bottom: 1px solid gray;
+                padding: 0 10px;
+                font-size: 1.2rem;
+                transition: all .3s ease-in-out;
+                &:focus{
+                    outline: none;
+                    border-bottom: 1px solid $base-color;
+                }
+            }
+
+            &_button{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                border-radius: 10px;
+                border: none;
+                background-color: $base-color;
+                color: $accent-color;
+                width: 150px;
+                height: 70px;
+                padding: 0 10px;
+                font-size: 1.5rem;
+                transition: all .3s ease-in-out;
+                cursor: pointer;
+
+                &:hover{
+                    transform: rotate(5deg);
+                }
+            }
+        }
+    }
+
+
+}
+
+
+@media (max-width: 768px) {
+    .contact{
+        flex-direction: column;
+        &_left{
+            width: 100%;
+            min-height: 800px;
+        }
+        &_right{
+            width: 100%;
+            min-height: 1000px;
+
+            &_form{
+                flex-direction: row;
+                &_item{
+                    width: 90%;
+                    &_full{
+                        width: 90%;
+                    }
+                }
+            }
+        }
+    }
     
 }
