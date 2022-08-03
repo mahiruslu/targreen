@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Styles from "./Home.module.scss";
+import Projects from "./components/Projects";
 
 function Home() {
   return (
@@ -18,14 +19,9 @@ function Home() {
             </h1>
             <h2>We take farming, irrigation, and spraying to the next level</h2>
           </motion.div>
-
         </div>
       </section>
-      <section>
-        <div className="container">
-          <h2>Products</h2>
-        </div>
-      </section>
+      <Projects />
     </>
   );
 }
