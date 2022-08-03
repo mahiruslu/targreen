@@ -15,6 +15,7 @@ import { useForm } from "react-hook-form";
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
+import { faMailBulk, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 function Contact() {
   const {
@@ -79,198 +80,217 @@ function Contact() {
   };
 
   return (
-    <motion.div
-      initial={{ y: 100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 1, bounce: true }}
-      className={Styles.contact}
-    >
-      <div className={Styles.contact_left}>
-        <div className={Styles.contact_left_top}>
-          <h2>Contact Information</h2>
-          <p>Fill out the form below to contact us.</p>
+    <>
+      <motion.div
+        initial={{ y: 100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 1, bounce: true }}
+        className={Styles.contact}
+      >
+        <div className={Styles.contact_left}>
+          <div className={Styles.contact_left_top}>
+            <h2 className={Styles.contact_left_top_title}>
+              Contact Information
+            </h2>
+            <p className={Styles.contact_left_top_title_sub}>
+              Fill out the form or use one of the following options.
+            </p>
+          </div>
+          <div className={Styles.contact_left_middle}>
+            <div className={Styles.contact_left_middle_item}>
+              <a href="tel:+90 555 555 55 55" target="_blank">
+                <FontAwesomeIcon icon={faPhone} id="faIcon" />0 555 555 55 55
+              </a>
+            </div>
+            <div className={Styles.contact_left_middle_item}>
+              <a href="https://wa.me/9055555555555?chat" target="_blank">
+                <FontAwesomeIcon icon={faWhatsapp} id="faIcon" />
+                Text us on Whatsapp
+              </a>
+            </div>
+            <div className={Styles.contact_left_middle_item}>
+              <a href="https://www.instagram.com/targreen/" target="_blank">
+                <FontAwesomeIcon icon={faInstagram} id="faIcon" />
+                Follow us on Instagram
+              </a>
+            </div>
+            <div className={Styles.contact_left_middle_item}>
+              <a href="mailto:info@targreen.com" target="_blank">
+                <FontAwesomeIcon icon={faMailBulk} id="faIcon" />
+                info@targreen.com
+              </a>
+            </div>
+          </div>
+
+          <div className={Styles.contact_left_bottom}></div>
         </div>
-        <div className={Styles.contact_left_middle}>
-          <a href="mailto:" className={Styles.email}>
-            Email
-          </a>
-          <a href="tel:" className={Styles.phone}>
-            Phone
-          </a>
-          <a href="address:" className={Styles.address}>
-            Address
-          </a>
+        <div className={Styles.contact_right}>
+          <form
+            className={Styles.contact_right_form}
+            onSubmit={handleSubmit(onSubmit)}
+            noValidate
+          >
+            <div className={classNames(Styles.contact_right_form_item)}>
+              <label htmlFor="name">First Name*</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="John"
+                {...register("firstName", {
+                  required: {
+                    value: true,
+                    message: "You need to fill first name.",
+                  },
+                })}
+              />
+              {errors.firstName && (
+                <span className={Styles.error_message}>
+                  {errors.firstName.message}
+                </span>
+              )}
+            </div>
+
+            <div className={classNames(Styles.contact_right_form_item)}>
+              <label htmlFor="name">Last Name</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Doe"
+                {...register("lastName", {
+                  required: {
+                    value: true,
+                    message: "You need to fill last name.",
+                  },
+                })}
+              />
+              {errors.lastName && (
+                <span className={Styles.error_message}>
+                  {errors.lastName.message}
+                </span>
+              )}
+            </div>
+
+            <div className={classNames(Styles.contact_right_form_item)}>
+              <label htmlFor="email">Email*</label>
+              <input
+                type="text"
+                id="email"
+                placeholder="johndoe@mail.com"
+                {...register("email", {
+                  required: {
+                    value: true,
+                    message: "You need to fill email.",
+                  },
+                  pattern: {
+                    value:
+                      /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                    message: "Make sure you enter a correct e-mail address.",
+                  },
+                })}
+              />
+              {errors.email && (
+                <span className={Styles.error_message}>
+                  {errors.email.message}
+                </span>
+              )}
+            </div>
+
+            <div className={classNames(Styles.contact_right_form_item)}>
+              <label htmlFor="phone">Phone</label>
+              <input
+                type="text"
+                id="phone"
+                placeholder="+905551234567"
+                {...register("tel", {
+                  pattern: {
+                    value:
+                      /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/,
+                    message: "Make sure you enter a correct phone number.",
+                  },
+                })}
+              />
+              {errors.tel && (
+                <span className={Styles.error_message}>
+                  {errors.tel.message}
+                </span>
+              )}
+            </div>
+
+            <div
+              className={classNames(
+                Styles.contact_right_form_item,
+                Styles.contact_right_form_item_full
+              )}
+            >
+              <label htmlFor="subject">Subject*</label>
+              <input
+                type="text"
+                id="subject"
+                placeholder="Hello"
+                {...register("subject", {
+                  required: {
+                    value: true,
+                    message: "You need to provide subject.",
+                  },
+                  maxLength: {
+                    value: 75,
+                    message: "Max lenght must bu under 75 character.",
+                  },
+                })}
+              />
+              {errors.subject && (
+                <span className={Styles.error_message}>
+                  {errors.subject.message}
+                </span>
+              )}
+            </div>
+
+            <div
+              className={classNames(
+                Styles.contact_right_form_item,
+                Styles.contact_right_form_item_full
+              )}
+            >
+              <label htmlFor="message">Message*</label>
+              <textarea
+                id="message"
+                placeholder="Write your message"
+                {...register("message", {
+                  required: {
+                    value: true,
+                    message: "You need to provide message.",
+                  },
+                  maxLength: {
+                    value: 500,
+                    message: "Max lenght must bu under 500 character.",
+                  },
+                })}
+              />
+              {errors.message && (
+                <span className={Styles.error_message}>
+                  {errors.message.message}
+                </span>
+              )}
+            </div>
+
+            <div
+              className={classNames(
+                Styles.contact_right_form_item,
+                Styles.contact_right_form_item_right
+              )}
+            >
+              <button
+                className={Styles.contact_right_form_button}
+                type="submit"
+              >
+                Send Message
+              </button>
+            </div>
+          </form>
         </div>
-
-        <div className={Styles.contact_left_bottom}>
-          <a href="" className="social_icon">
-            <FontAwesomeIcon icon={faFacebook} size="2x" />
-          </a>
-          <a href="" className="social_icon">
-            <FontAwesomeIcon icon={faTwitter} size="2x" />
-          </a>
-          <a href="" className="social_icon">
-            <FontAwesomeIcon icon={faInstagram} size="2x" />
-          </a>
-          <a href="" className="social_icon">
-            <FontAwesomeIcon icon={faLinkedin} size="2x" />
-          </a>
-          <a href="" className="social_icon">
-            <FontAwesomeIcon icon={faWhatsapp} size="2x" />
-          </a>
-        </div>
-      </div>
-      <div className={Styles.contact_right}>
-        <form
-          className={Styles.contact_right_form}
-          onSubmit={handleSubmit(onSubmit)}
-          noValidate
-        >
-          <div className={classNames(Styles.contact_right_form_item)}>
-            <label htmlFor="name">First Name*</label>
-            <input
-              type="text"
-              id="name"
-              placeholder="John"
-              {...register("firstName", {
-                required: {
-                  value: true,
-                  message: "You need to fill first name.",
-                },
-              })}
-            />
-            {errors.firstName && (
-              <span className="errorMessage">{errors.firstName.message}</span>
-            )}
-          </div>
-
-          <div className={classNames(Styles.contact_right_form_item)}>
-            <label htmlFor="name">Last Name</label>
-            <input
-              type="text"
-              id="name"
-              placeholder="Doe"
-              {...register("lastName", {
-                required: {
-                  value: true,
-                  message: "You need to fill last name.",
-                },
-              })}
-            />
-            {errors.lastName && (
-              <span className="errorMessage">{errors.lastName.message}</span>
-            )}
-          </div>
-
-          <div className={classNames(Styles.contact_right_form_item)}>
-            <label htmlFor="email">Email*</label>
-            <input
-              type="text"
-              id="email"
-              placeholder="johndoe@mail.com"
-              {...register("email", {
-                required: {
-                  value: true,
-                  message: "You need to fill email.",
-                },
-                pattern: {
-                  value:
-                    /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                  message: "Make sure you enter a correct e-mail address.",
-                },
-              })}
-            />
-            {errors.email && (
-              <span className="errorMessage">{errors.email.message}</span>
-            )}
-          </div>
-
-          <div className={classNames(Styles.contact_right_form_item)}>
-            <label htmlFor="phone">Phone</label>
-            <input
-              type="text"
-              id="phone"
-              placeholder="+905551234567"
-              {...register("tel", {
-                pattern: {
-                  value:
-                    /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/,
-                  message: "Make sure you enter a correct phone number.",
-                },
-              })}
-            />
-            {errors.tel && (
-              <span className="errorMessage">{errors.tel.message}</span>
-            )}
-          </div>
-
-          <div
-            className={classNames(
-              Styles.contact_right_form_item,
-              Styles.contact_right_form_item_full
-            )}
-          >
-            <label htmlFor="subject">Subject*</label>
-            <input
-              type="text"
-              id="subject"
-              placeholder="Hello"
-              {...register("subject", {
-                required: {
-                  value: true,
-                  message: "You need to provide subject.",
-                },
-                maxLength: {
-                  value: 75,
-                  message: "Max lenght must bu under 75 character.",
-                },
-              })}
-            />
-            {errors.subject && (
-              <span className="errorMessage">{errors.subject.message}</span>
-            )}
-          </div>
-
-          <div
-            className={classNames(
-              Styles.contact_right_form_item,
-              Styles.contact_right_form_item_full
-            )}
-          >
-            <label htmlFor="message">Message*</label>
-            <textarea
-              id="message"
-              placeholder="Write your message"
-              {...register("message", {
-                required: {
-                  value: true,
-                  message: "You need to provide message.",
-                },
-                maxLength: {
-                  value: 500,
-                  message: "Max lenght must bu under 500 character.",
-                },
-              })}
-            />
-            {errors.message && (
-              <span className="errorMessage">{errors.message.message}</span>
-            )}
-          </div>
-
-          <div
-            className={classNames(
-              Styles.contact_right_form_item,
-              Styles.contact_right_form_item_right
-            )}
-          >
-            <button className={Styles.contact_right_form_button} type="submit">
-              Send Message
-            </button>
-          </div>
-        </form>
-      </div>
-      <ToastContainer draggablePercent={60} />
-    </motion.div>
+        <ToastContainer draggablePercent={60} />
+      </motion.div>
+    </>
   );
 }
 
