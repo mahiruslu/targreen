@@ -14,6 +14,16 @@
   z-index: 1020;
   background-color: beige;
 
+  &_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+  }
+
   &_logo {
     font-family: "Pacifico", cursive;
     font-weight: bold;
@@ -31,8 +41,11 @@
 
   &_links {
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     gap: 20px;
     height: 100%;
+    width: 100%;
     padding: 0 20px;
     background-color: yellow;
 

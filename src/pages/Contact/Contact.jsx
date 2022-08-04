@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import Styles from "./Contact.module.scss";
+import Loader from "../../components/Loader/Loader";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -25,6 +26,8 @@ function Contact() {
     reset,
     clearErrors,
   } = useForm();
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const toastifySuccess = () => {
     toast.success("We got your message! Shortly you'll be hear from us.", {
@@ -53,9 +56,8 @@ function Contact() {
     );
   };
   const onSubmit = async (data) => {
-    // Send form email
-    console.log(data);
-    console.log(errors);
+    setIsSubmitting(true);
+
     try {
       const templateParams = {
         name: data.firstName + " " + data.lastName,
@@ -77,6 +79,7 @@ function Contact() {
       console.log(`e`, e.message);
       toastifyError();
     }
+    setIsSubmitting(false);
   };
 
   return (
@@ -282,8 +285,9 @@ function Contact() {
               <button
                 className={Styles.contact_right_form_button}
                 type="submit"
+                disabled={isSubmitting}
               >
-                Send Message
+                {isSubmitting ? <Loader /> : "Send Message"}
               </button>
             </div>
           </form>
