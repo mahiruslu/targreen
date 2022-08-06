@@ -4,9 +4,10 @@ import Styles from "./Home.module.scss";
 import Projects from "./components/Projects";
 
 function Home() {
+
   return (
     <>
-      <section className="banner-home">
+      <section className={Styles.bannerHome}>
         <div className="container">
           <motion.div
             initial={{ opacity: 0.1 }}
