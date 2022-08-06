@@ -1,0 +1,182 @@
+@import "../../assets/styles/variables";
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  top: 0;
+  transition: all 0.3s ease-in-out;
+  background-color: #f3f3f3;
+  min-height: 8vh;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  position: sticky;
+  z-index: 1020;
+  background-color: beige;
+
+  &_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+  }
+
+  &_logo {
+    font-family: "Pacifico", cursive;
+    font-weight: bold;
+    font-size: 5vh;
+    margin-left: 20px;
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: $base-color;
+    &_img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &_links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    height: 100%;
+    width: 100%;
+    padding: 0 20px;
+    background-color: yellow;
+
+  }
+  &_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    cursor: pointer;
+    color: $base-color;
+    background-color: aquamarine;
+
+    &_title {
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: $base-color;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &_title::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: $base-color;
+        transform-origin: bottom right;
+        transition: transform 0.5s ease-out;
+      }
+
+      &_title:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+
+
+    label{
+      display:flex;
+       flex-direction:column;
+       width:50px;
+       cursor:pointer;
+     }
+     
+     label span{
+       background: $base-color;
+       border-radius:10px;
+       height:7px;
+       margin: 4px 0;
+       transition: .4s  cubic-bezier(0.68, -0.6, 0.32, 1.6);
+     
+     }
+     
+     
+     label span:nth-of-type(1){
+       width:50%;
+       
+     }
+     
+     label span:nth-of-type(2){
+       width:100%;
+     }
+     
+     
+     label span:nth-of-type(3){
+       width:75%;
+      
+     }
+     
+     
+     label input[type="checkbox"]{
+       display:none;
+     }
+     
+     
+     label input[type="checkbox"]:checked ~ span:nth-of-type(1){
+       transform-origin:bottom;
+       transform:rotatez(45deg) translate(6px,0px)
+     }
+     
+     
+     label input[type="checkbox"]:checked ~ span:nth-of-type(2){
+       
+       transform-origin:top;
+       transform:rotatez(-45deg)
+     }
+     
+     
+     label input[type="checkbox"]:checked ~ span:nth-of-type(3){
+       
+       transform-origin:bottom;
+       width:50%;
+       transform: translate(22px,-9px) rotatez(45deg);
+     
+     }
+     
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav {
+
+    &_open {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    &_links {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      height: 100%;
+      transition: all 0.3s ease-in-out;
+      padding: 0 20px;
+    }
+
+
+    &_item {
+      &_button {
+        &:hover {
+          transform: translate(0px, 0px);
+          // .nav_item_title{
+          //     display: block;
+          // }
+        }
+      }
+    }
+  }
+}
