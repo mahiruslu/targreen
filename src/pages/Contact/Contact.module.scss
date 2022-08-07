@@ -211,7 +211,7 @@
                 color: $font-color-white;
                 width: 150px;
                 height: 70px;
-                padding: 0 10px;
+                margin: 0 20px;
                 font-size: 1.3rem;
                 transition: all .3s ease-in-out;
                 cursor: pointer;
@@ -264,6 +264,20 @@
     }
 }
 
+
+.error_message{
+    color: red;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+
+svg{
+    max-width: 100%;
+}
+
 @media (max-width: 768px) {
     .contact{
         flex-direction: column;
@@ -274,6 +288,13 @@
         &_left{
             min-width: 100%;
             min-height: 600px;
+
+            &_top{
+
+                p{
+                    width: 95%;
+                }
+            }
         }
         &_right{
             width: 100%;
@@ -285,8 +306,11 @@
                     width: 100%;
                     padding: 20px 0px;
                     &_full{
-                        width: 90%;
+                        width: 100%;
                     }
+                }
+                &_button{
+                    margin: 0 0;
                 }
             }
         }
@@ -310,17 +334,4 @@
         }
     }
     
-}
-
-.error_message{
-    color: red;
-    font-size: 1rem;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 0.5rem;
-}
-
-
-svg{
-    max-width: 100%;
 }
