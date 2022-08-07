@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useEffect, useState, useLayoutEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import Styles from "./Navbar.module.scss";
 import classNames from "classnames/bind";
+import logo from "../../assets/images/logo.png";
+import useIsOverflow from "../../utils/hooks/useIsOverflow";
 
 const MOBILE_MENU_WINDOW_WIDTH = 768;
 
 function Navbar(props) {
   const { isFixed, color } = props;
-  // const navigation = useNavigate();
 
   const [isOpen, setIsOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -52,6 +53,10 @@ function Navbar(props) {
     };
   }, []);
 
+  useEffect(() => {
+    setIsAtTop(document.body.scrollHeight > window.innerHeight);
+  }, [useLocation()?.pathname]);
+
   return (
     <div
       className={classNames(Styles.nav, {
@@ -65,7 +70,7 @@ function Navbar(props) {
         })}
       >
         <Link to="/" className={Styles.nav_logo}>
-          <span>targreen.</span>
+          <img src={logo} alt="" clasname={Styles.nav_logo_img} width={150} />
         </Link>
         {windowWidth < MOBILE_MENU_WINDOW_WIDTH && (
           <>
@@ -75,7 +80,7 @@ function Navbar(props) {
               animate={{ x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <label for="check">
+              <label for="check" className={Styles.nav_item_check}>
                 <input
                   type="checkbox"
                   id="check"

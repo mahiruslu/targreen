@@ -10,13 +10,13 @@ import {
   faLinkedin,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
-import classNames from "classnames/bind";
+import { faMailBulk, faPhone } from "@fortawesome/free-solid-svg-icons";
 
+import classNames from "classnames/bind";
 import { useForm } from "react-hook-form";
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import { faMailBulk, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 function Contact() {
   const {
@@ -101,18 +101,31 @@ function Contact() {
           </div>
           <div className={Styles.contact_left_middle}>
             <div className={Styles.contact_left_middle_item}>
-              <a href="tel:+90 555 555 55 55" target="_blank">
-                <FontAwesomeIcon icon={faPhone} id="faIcon" />0 555 555 55 55
+              <a href="tel:+90 532 656 42 11" target="_blank">
+                <FontAwesomeIcon icon={faPhone} id="faIcon" />
+                +90 532 656 42 11
               </a>
             </div>
             <div className={Styles.contact_left_middle_item}>
-              <a href="https://wa.me/9055555555555?chat" target="_blank">
+              <a href="https://wa.me/+905326564211?chat" target="_blank">
                 <FontAwesomeIcon icon={faWhatsapp} id="faIcon" />
                 Text us on Whatsapp
               </a>
             </div>
             <div className={Styles.contact_left_middle_item}>
-              <a href="https://www.instagram.com/targreen/" target="_blank">
+              <a href="https://www.facebook.com/targreenco/" target="_blank">
+                <FontAwesomeIcon icon={faFacebook} id="faIcon" />
+                Follow us on Facebook
+              </a>
+            </div>
+            <div className={Styles.contact_left_middle_item}>
+              <a href="https://www.linkedin.com/in/targreenco/" target="_blank">
+                <FontAwesomeIcon icon={faLinkedin} id="faIcon" />
+                Follow us on Linkedin
+              </a>
+            </div>
+            <div className={Styles.contact_left_middle_item}>
+              <a href="https://www.instagram.com/targreenco/" target="_blank">
                 <FontAwesomeIcon icon={faInstagram} id="faIcon" />
                 Follow us on Instagram
               </a>
@@ -125,7 +138,10 @@ function Contact() {
             </div>
           </div>
 
-          <div className={Styles.contact_left_bottom}></div>
+          <div className={Styles.contact_left_bottom}>
+            {/* <div className={Styles.contact_left_bottom_circle}></div>
+            <div className={Styles.contact_left_bottom_circle_half}></div> */}
+          </div>
         </div>
         <div className={Styles.contact_right}>
           <form
@@ -292,6 +308,7 @@ function Contact() {
             </div>
           </form>
         </div>
+
         <ToastContainer draggablePercent={60} />
       </motion.div>
     </>
