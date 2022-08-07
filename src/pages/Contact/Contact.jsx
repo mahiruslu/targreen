@@ -83,13 +83,17 @@ function Contact() {
   };
 
   return (
-    <>
-      <motion.div
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 1, bounce: true }}
-        className={Styles.contact}
-      >
+    <motion.div
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 1, bounce: true }}
+      className={Styles.page}
+    >
+      <div className={Styles.welcome}>
+        <h2>Contact Us</h2>
+        <p>Any question or remarks? Just write us a message.</p>
+      </div>
+      <div className={Styles.contact}>
         <div className={Styles.contact_left}>
           <div className={Styles.contact_left_top}>
             <h2 className={Styles.contact_left_top_title}>
@@ -310,8 +314,22 @@ function Contact() {
         </div>
 
         <ToastContainer draggablePercent={60} />
-      </motion.div>
-    </>
+      </div>
+      <div className={Styles.address}>
+        <div className={Styles.address_map}>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12602.169107120952!2d32.6510071!3d37.8476002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d099df3a196c49%3A0xa621e075c15278a2!2zMzfCsDUxJzAwLjAiTiAzMsKwMzknMTguOCJF!5e0!3m2!1str!2str!4v1659906053259!5m2!1str!2str"
+            width="750"
+            height="350"
+            style={{ border: 0 }}
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="harita"
+          ></iframe>
+        </div>
+      </div>
+    </motion.div>
   );
 }
 

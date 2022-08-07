@@ -1,6 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Jost:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+/* @import url(https://fonts.googleapis.com/css?family=Jost:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic); */
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap'); */
 
 *{
 
@@ -12,7 +13,7 @@ html{
     font-size: 16px;
 }
 body{
-    font-family: "Dosis",'Open Sans', sans-serif;
+    font-family: "Dosis", 'Open Sans', sans-serif;
     font-size: 1rem;
     line-height: 1.6;
     color: #333;
