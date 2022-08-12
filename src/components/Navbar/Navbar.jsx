@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import Styles from "./Navbar.module.scss";
 import classNames from "classnames/bind";
 import logo from "../../assets/images/logo.png";
-import useIsOverflow from "../../utils/hooks/useIsOverflow";
 
 const MOBILE_MENU_WINDOW_WIDTH = 768;
 
@@ -58,7 +57,7 @@ function Navbar(props) {
   }, [useLocation()?.pathname]);
 
   return (
-    <div
+    <nav
       className={classNames(Styles.nav, {
         [Styles.nav_open]: isOpen,
         [Styles.nav_top]: !isAtTop,
@@ -69,9 +68,18 @@ function Navbar(props) {
           [Styles.nav_container]: isMobile,
         })}
       >
-        <Link to="/" className={Styles.nav_logo}>
-          <img src={logo} alt="" clasname={Styles.nav_logo_img} width={150} />
-        </Link>
+        <motion.div
+          initial={{ y: -200, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 0.5,
+          }}
+          className={Styles.nav_logo}
+        >
+          <Link to="/">
+            <img src={logo} alt="" clasname={Styles.nav_logo_img} width={150} />
+          </Link>
+        </motion.div>
         {windowWidth < MOBILE_MENU_WINDOW_WIDTH && (
           <>
             <motion.div
@@ -97,43 +105,46 @@ function Navbar(props) {
         )}
       </div>
       {isOpen || !isMobile ? (
-        <div
+        <motion.div
+          initial={{ y: -200, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 0.5,
+          }}
           className={classNames(Styles.nav_links, {
             [Styles.nav_links_open]: isOpen,
           })}
         >
-          <>
-            <Link className={Styles.nav_item} to="/" onClick={handleMenuClick}>
-              <span className={Styles.nav_item_title}>Home</span>
-            </Link>
+          <Link className={Styles.nav_item} to="/" onClick={handleMenuClick}>
+            <span className={Styles.nav_item_title}>Home</span>
+          </Link>
 
-            <Link
-              className={Styles.nav_item}
-              to="/blog"
-              onClick={handleMenuClick}
-            >
-              <span className={Styles.nav_item_title}>Products</span>
-            </Link>
+          <Link
+            className={Styles.nav_item}
+            to="/blog"
+            onClick={handleMenuClick}
+          >
+            <span className={Styles.nav_item_title}>Products</span>
+          </Link>
 
-            <Link
-              className={Styles.nav_item}
-              to="/timeline"
-              onClick={handleMenuClick}
-            >
-              <span className={Styles.nav_item_title}>About</span>
-            </Link>
+          <Link
+            className={Styles.nav_item}
+            to="/timeline"
+            onClick={handleMenuClick}
+          >
+            <span className={Styles.nav_item_title}>About</span>
+          </Link>
 
-            <Link
-              className={Styles.nav_item}
-              to="/contact"
-              onClick={handleMenuClick}
-            >
-              <span className={Styles.nav_item_title}>Contact</span>
-            </Link>
-          </>
-        </div>
+          <Link
+            className={Styles.nav_item}
+            to="/contact"
+            onClick={handleMenuClick}
+          >
+            <span className={Styles.nav_item_title}>Contact</span>
+          </Link>
+        </motion.div>
       ) : null}
-    </div>
+    </nav>
   );
 }
 

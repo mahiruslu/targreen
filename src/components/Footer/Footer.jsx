@@ -1,8 +1,10 @@
 import React from "react";
+import { motion } from "framer-motion";
+import Styles from "./Footer.module.scss";
 
 function Footer() {
   return (
-    <div className="footer">
+    <footer className={Styles.footer}>
       <div className="container">
         <ul className="d-flex">
           <li>Lorem, ipsum dolor.</li>
@@ -22,7 +24,7 @@ function Footer() {
           reprehenderit in ea pariatur sunt. Ea, quisquam.
         </ul>
       </div>
-    </div>
+    </footer>
   );
 }
 

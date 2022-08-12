@@ -1,3 +1,5 @@
+@import "../../assets/styles/variables";
+
 .home {
   display: flex;
   flex-direction: column;
@@ -5,7 +7,7 @@
   align-items: center;
   text-align: center;
   width: 100vw;
-  height: 1000px;
+  height: 100vh;
   background-image: url("../../assets/images//home.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -15,23 +17,33 @@
   align-items: center;
   justify-content: center;
 
-  // &_wrapper{
-  //     height: 900%;
-  //     width: 90%;
-  //     display: flex;
-  //     flex-direction: column;
-  //     justify-content: center;
-  //     align-items: center;
+  &_wrapper{
+      height: 100%;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
 
-  // }
+  }
+  h1{
+    font-size: 2rem;
+    font-weight: bold;
+    color: $base-color;
+  }
   h2 {
-    width: 50%;
     font-size: 2.5rem;
     font-weight: bold;
     color: #fff;
     margin-bottom: 1rem;
     text-transform: uppercase;
     text-shadow: #000 10px 10px 10px;
+  }
+  p{
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
   }
   &_top_container {
     display: flex;
