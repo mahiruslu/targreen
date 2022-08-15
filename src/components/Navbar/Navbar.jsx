@@ -41,7 +41,7 @@ function Navbar(props) {
   }, [windowWidth]);
 
   const handleScroll = () => {
-    setIsAtTop(window.scrollY <= 100);
+    setIsAtTop(window.scrollY <= 80);
   };
 
   useEffect(() => {
@@ -109,7 +109,7 @@ function Navbar(props) {
           initial={{ y: -200, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{
-            duration: 0.5,
+            duration: 0.2,
           }}
           className={classNames(Styles.nav_links, {
             [Styles.nav_links_open]: isOpen,

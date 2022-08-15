@@ -8,16 +8,30 @@
     gap: 0.5rem;
     padding: 10px 20px ;
     border-radius: 10px;
-    border: 1px solid $base-color;
-    background-color: $base-color;
+    background-color: $tertiary-color;
     color: $font-color-white;
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
     &:hover{
-        background-color: $base-color;
-        transform: rotate(3deg);
+        transform: scale(1.1);
+        svg{
+            animation: icon-spin 1s 2 linear;
+        }
     }
+}
+
+@keyframes icon-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(45deg) translate(5px);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+    
 }
