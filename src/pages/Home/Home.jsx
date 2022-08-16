@@ -1,10 +1,13 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { Suspense, useEffect } from "react";
 import Styles from "./Home.module.scss";
 import Contact from "../Contact/Contact";
-import Button from "../../components/Button/Button";
+import Button from "../../components/Home/Button/Button";
 import { useNavigate } from "react-router-dom";
-import Brands from "../../components/Brands/Brands";
+import Brands from "../../components/Home/Brands/Brands";
+import Loader from "../../components/Loader/Loader";
+import Numbers from "../../components/Home/Numbers/Numbers";
+import { useInView } from "react-intersection-observer";
+import { motion, useAnimation } from "framer-motion";
 
 function Home() {
   const navigate = useNavigate();
@@ -32,27 +35,12 @@ function Home() {
           <p>Unlimited solutions for your farming needs.</p>
           <Button onClick={handleGoToProducts}>See Products</Button>
         </motion.div>
-        <motion.div
-          initial={{ opacity: 0.1 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className={Styles.home_products_overview}
-        >
+        <div className={Styles.home_products_overview}>
           <Brands />
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0.1 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className={Styles.home_wrapper}
-        >
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci
-          odio rerum, eum ad ut animi qui iure temporibus harum exercitationem
-          amet, laudantium voluptatem magni laboriosam saepe minus corporis
-          necessitatibus sequi sint reiciendis, in aliquam incidunt eius beatae?
-          Maxime nisi harum officia repudiandae adipisci. Quae provident
-          quibusdam, deserunt a minima modi?
-        </motion.div>
+        </div>
+        <div className={Styles.home_wrapper}>
+          <Numbers />
+        </div>
       </motion.div>
     </>
   );

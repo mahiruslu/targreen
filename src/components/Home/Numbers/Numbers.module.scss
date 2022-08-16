@@ -1,0 +1,86 @@
+@import '../../../assets/styles/variables.scss';
+
+.numbers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 450px;
+    gap: 10px;
+
+    &_left{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 45%;
+        height: 100%;
+
+        &_title{
+            
+        }
+    }
+    &_right{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        width: 45%;
+        height: 100%;
+
+        &_item{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            background-color: $nice-color;
+            width: 200px;
+            height: 150px;
+            border-radius: 10px;
+            flex: 0 1 auto;
+
+            span:nth-child(1){
+                font-size: 2.5rem;
+            }
+            span:nth-child(2){
+                font-size: 1.2rem;
+            }
+
+        }
+    }
+    &_brand{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        font-size: larger;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .numbers{
+        flex-direction: column;
+        height: fit-content;
+        padding: 30px 0;
+
+        &_left{
+            width: 100%;
+        }
+        &_right{
+            width: 100%;
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    
+}

@@ -38,6 +38,17 @@
       height: fit-content;
   }
 
+  &_wrapper{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 100vw;
+      height: fit-content;
+      background-color: $tertiary-color;
+  }
+
   h1{
     font-size: 2rem;
     font-weight: bold;
@@ -95,15 +106,15 @@
     background-attachment: scroll;
     height: fit-content;
 
-    &_wrapper {
+    // &_wrapper {
 
-      h1{
-        font-size: 1.6rem;
-      }
-      h2 {
-        font-size: 2rem;
-      }
-    }
+    //   h1{
+    //     font-size: 1.6rem;
+    //   }
+    //   h2 {
+    //     font-size: 2rem;
+    //   }
+    // }
   }
 }
 
