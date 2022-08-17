@@ -3,41 +3,54 @@ import React, { useEffect } from "react";
 import Styles from "./Numbers.module.scss";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { numbers } from "../../../assets/data.json";
 
 function Numbers() {
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+  });
   const [refItem, inViewItem] = useInView({
     threshold: 0.5,
   });
 
   const animation = useAnimation();
+  const animationItem = useAnimation();
 
   useEffect(() => {
     if (inViewItem) {
-      animation.start((i) => ({
+      animationItem.start((i) => ({
         scale: 1,
         transition: {
           type: "spring",
-          duration: 1,
+          duration: 2,
           bounce: i * 0.1 + 0.5,
         },
       }));
     } else {
-      animation.start({
+      animationItem.start({
         scale: 0,
       });
     }
-  }, [inViewItem]);
+    if (inView) {
+      animation.start({
+        x: 0,
+        transition: {
+          type: "spring",
+          duration: 1,
+          bounce: 0.1,
+        },
+      });
+    } else {
+      animation.start({
+        x: "-100vw",
+      });
+    }
+  }, [inViewItem, inView]);
 
-  const numbers = [
-    { name: "Irrigation System Installations", number: 120 },
-    { name: "Team Members", number: 16 },
-    { name: "Successful Projects", number: 250 },
-    { name: "Years of Experience", number: 15 },
-  ];
   return (
-    <div className={classNames("container", [Styles.numbers])}>
-      <div className={Styles.numbers_left}>
-        <h3 className={Styles.number_left_title}>Tar-Green</h3>
+    <div ref={ref} className={classNames("container", [Styles.numbers])}>
+      <motion.div animate={animation} className={Styles.numbers_left}>
+        <h3 className={Styles.numbers_left_title}>TAR GREEN</h3>
         <p>
           We provide everything from new construction irrigation design and
           installation to maintenance for residential and commercial properties.
@@ -49,12 +62,12 @@ function Numbers() {
           of cutting edge smart technology, expertise, and honesty sets us
           apart.
         </p>
-      </div>
+      </motion.div>
       <div ref={refItem} className={Styles.numbers_right}>
         {numbers.map((number, index) => (
           <motion.div
             custom={index}
-            animate={animation}
+            animate={animationItem}
             key={index}
             className={Styles.numbers_right_item}
           >

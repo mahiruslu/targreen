@@ -3,17 +3,23 @@ import Styles from "./Home.module.scss";
 import Contact from "../Contact/Contact";
 import Button from "../../components/Home/Button/Button";
 import { useNavigate } from "react-router-dom";
-import Brands from "../../components/Home/Brands/Brands";
-import Loader from "../../components/Loader/Loader";
-import Numbers from "../../components/Home/Numbers/Numbers";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
+
+import Brands from "../../components/Home/Brands/Brands";
+import Numbers from "../../components/Home/Numbers/Numbers";
+import Products from "../../components/Home/Products/Products";
+import Loader from "../../components/Loader/Loader";
 
 function Home() {
   const navigate = useNavigate();
 
   const handleGoToProducts = () => {
-    navigate("/products");
+    // navigate("/products");
+    document.getElementById("products").scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return (
@@ -35,12 +41,12 @@ function Home() {
           <p>Unlimited solutions for your farming needs.</p>
           <Button onClick={handleGoToProducts}>See Products</Button>
         </motion.div>
-        <div className={Styles.home_products_overview}>
-          <Brands />
-        </div>
-        <div className={Styles.home_wrapper}>
-          <Numbers />
-        </div>
+
+        <Brands />
+
+        <Products />
+
+        <Numbers />
       </motion.div>
     </>
   );

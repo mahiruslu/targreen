@@ -1,0 +1,106 @@
+{
+    "brands": ["tarsu", "şusu", "busu", "o da su", "alla alla bu da mı su"],
+    "numbers": [
+        { "name": "Irrigation System Installations", "number": 120 },
+        { "name": "Team Members", "number": 16 },
+        { "name": "Successful Projects", "number": 250 },
+        { "name": "Years of Experience", "number": 15 }
+      ],
+      "products": [
+        { 
+          "sku": "11232221",
+          "title": "abut",
+          "description": "lorem ipsum pit amet",
+          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
+          "price": "1.00",
+          "category": "concrete",
+          "subcategory": "blocks",
+          "inStock": true,
+          "quantity": "1",
+          "brand": "tarsu",
+          "model": "abut",
+          "color": "red",
+          "size": {
+            "width": "1.00",
+            "height": "1.00",
+            "depth": "1.00"
+          }
+        },
+        { 
+          "sku": "11232221",
+          "title": "abut",
+          "description": "lorem ipsum pit amet",
+          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
+          "price": "1.00",
+          "category": "concrete",
+          "subcategory": "blocks",
+          "inStock": true,
+          "quantity": "1",
+          "brand": "tarsu",
+          "model": "abut",
+          "color": "red",
+          "size": {
+            "width": "1.00",
+            "height": "1.00",
+            "depth": "1.00"
+          }
+        },
+        { 
+          "sku": "11232221",
+          "title": "abut",
+          "description": "lorem ipsum pit amet",
+          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
+          "price": "1.00",
+          "category": "concrete",
+          "subcategory": "blocks",
+          "inStock": true,
+          "quantity": "1",
+          "brand": "tarsu",
+          "model": "abut",
+          "color": "red",
+          "size": {
+            "width": "1.00",
+            "height": "1.00",
+            "depth": "1.00"
+          }
+        },
+        { 
+          "sku": "11232221",
+          "title": "abut",
+          "description": "lorem ipsum pit amet",
+          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
+          "price": "1.00",
+          "category": "concrete",
+          "subcategory": "blocks",
+          "inStock": true,
+          "quantity": "1",
+          "brand": "tarsu",
+          "model": "abut",
+          "color": "red",
+          "size": {
+            "width": "1.00",
+            "height": "1.00",
+            "depth": "1.00"
+          }
+        },
+        { 
+          "sku": "11232221",
+          "title": "abut",
+          "description": "lorem ipsum pit amet",
+          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
+          "price": "1.00",
+          "category": "concrete",
+          "subcategory": "blocks",
+          "inStock": true,
+          "quantity": "1",
+          "brand": "tarsu",
+          "model": "abut",
+          "color": "red",
+          "size": {
+            "width": "1.00",
+            "height": "1.00",
+            "depth": "1.00"
+          }
+        }
+      ]
+}

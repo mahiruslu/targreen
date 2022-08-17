@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import Styles from "./Brands.module.scss";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { brands } from "../../../assets/data.json";
 
 function Brands() {
   const [refBrands, inViewBrands] = useInView({
@@ -27,8 +28,6 @@ function Brands() {
       });
     }
   }, [inViewBrands]);
-
-  const brands = ["tarsu", "şusu", "busu", "o da su", "alla alla bu da mı su"];
 
   return (
     <div ref={refBrands}>

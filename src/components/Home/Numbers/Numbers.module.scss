@@ -1,4 +1,4 @@
-@import '../../../assets/styles/variables.scss';
+@import '../../../assets/styles/_variables.scss';
 
 .numbers{
     display: flex;
@@ -6,9 +6,9 @@
     justify-content: space-around;
     align-items: center;
     width: 100vw;
-    height: 450px;
+    height: 500px;
     gap: 10px;
-
+    background-color: $tertiary-color;
     &_left{
         display: flex;
         flex-direction: column;
@@ -19,7 +19,9 @@
         height: 100%;
 
         &_title{
-            
+            color: $accent-color;
+            font-size: x-large;
+            font-weight: bolder;
         }
     }
     &_right{
