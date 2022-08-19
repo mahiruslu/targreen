@@ -6,7 +6,8 @@
 *{
 
     background-color: transparent;
-
+    scroll-behavior: smooth;
+    scroll-margin: 80px;
     
 }
 html{

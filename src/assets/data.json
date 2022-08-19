@@ -6,12 +6,21 @@
         { "name": "Successful Projects", "number": 250 },
         { "name": "Years of Experience", "number": 15 }
       ],
+
+    "product_groups": [
+        { "name": "Sprinkler System","image": "spring.jpg","desc": "This is a nice product 1" },
+        { "name": "Drip System","image": "drip.jpg","desc": "This is a nice product 2" },
+        { "name": "Strainer System","image": "filter.jpg","desc": "This is a nice product 3" },
+        { "name": "Pvc Pipes","image": "pipes.jpg","desc": "This is a nice product 4" },
+        { "name": "Valves","image": "valves.jpg","desc": "This is a nice product 5" },
+        { "name": "Machines","image": "machine.jpg","desc": "This is a nice product 6" }
+    ],
       "products": [
         { 
           "sku": "11232221",
           "title": "abut",
           "description": "lorem ipsum pit amet",
-          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
+          "image": "abut.jpg",
           "price": "1.00",
           "category": "concrete",
           "subcategory": "blocks",

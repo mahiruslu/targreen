@@ -42,7 +42,7 @@ function Home() {
           <Button onClick={handleGoToProducts}>See Products</Button>
         </motion.div>
 
-        <Brands />
+        {/* <Brands /> */}
 
         <Products />
 

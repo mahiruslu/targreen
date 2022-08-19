@@ -1,20 +1,21 @@
 import classNames from "classnames";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Styles from "./Products.module.scss";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { products } from "../../../assets/data.json";
+import { product_groups } from "../../../assets/data.json";
 
-function Brands() {
+function Products() {
   const [ref, inView] = useInView({
-    threshold: 0.5,
+    threshold: 0.2,
   });
   const [refItem, inViewItem] = useInView({
-    threshold: 0.5,
+    threshold: 0.2,
   });
 
   const animation = useAnimation();
   const animationItem = useAnimation();
+  const animationImage = useAnimation();
 
   useEffect(() => {
     if (inViewItem) {
@@ -47,19 +48,44 @@ function Brands() {
     }
   }, [inViewItem, inView]);
 
+  const [selected, setSelected] = useState(0);
+
+  useEffect(() => {
+    console.log(selected);
+    animationImage.set({ opacity: 0, scale: 0.75 });
+    animationImage.start({
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring",
+        duration: 2,
+        bounce: 0.4,
+      },
+    });
+  }, [selected]);
+
   return (
-    <div ref={ref} id="products">
+    <div ref={ref} id="products" className={Styles.container}>
       <div className={classNames("container", [Styles.products])}>
         <div ref={refItem} className={Styles.products_bottom}>
-          {products.map((product, index) => (
-            <div className={Styles.products_bottom_product}>
+          {product_groups.map((product, index) => (
+            <div
+              className={Styles.products_bottom_product}
+              onClick={() => setSelected(index)}
+            >
               <motion.div
                 custom={index}
                 animate={animationItem}
                 key={index}
-                className={Styles.products_bottom_product_name}
+                className={classNames([
+                  Styles.products_bottom_product_name,
+                  {
+                    [Styles.products_bottom_product_name_selected]:
+                      selected === index,
+                  },
+                ])}
               >
-                {product.title}
+                {product.name}
                 <span></span>
               </motion.div>
             </div>
@@ -67,10 +93,26 @@ function Brands() {
         </div>
         <div ref={ref} className={Styles.products_top}>
           <motion.div
-            animate={animation}
+            // animate={animation}
             className={Styles.products_top_product}
           >
-            asdasdasdass
+            <div className={Styles.products_top_product_desc}>
+              {product_groups[selected].desc}
+            </div>
+            <motion.div
+              animate={animationImage}
+              className={Styles.products_top_product_image}
+            >
+              <img
+                src={
+                  window.location.origin +
+                  "/assets/images/products/" +
+                  product_groups[selected].image
+                }
+                alt={product_groups[selected].name}
+              />
+            </motion.div>
+            <p>Click the image to see products</p>
           </motion.div>
         </div>
       </div>
@@ -78,4 +120,4 @@ function Brands() {
   );
 }
 
-export default Brands;
+export default Products;
