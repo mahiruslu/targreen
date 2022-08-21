@@ -32,7 +32,6 @@ function Brands() {
   return (
     <div ref={refBrands}>
       <motion.div
-        ref={refBrands}
         animate={animationBrands}
         className={classNames("container", [Styles.brands])}
       >

@@ -9,7 +9,9 @@ import { motion, useAnimation } from "framer-motion";
 import Brands from "../../components/Home/Brands/Brands";
 import Numbers from "../../components/Home/Numbers/Numbers";
 import Products from "../../components/Home/Products/Products";
+import Footer from "../../components/Footer/Footer";
 import Loader from "../../components/Loader/Loader";
+import Services from "../../components/Home/Services/Services";
 
 function Home() {
   const navigate = useNavigate();
@@ -42,11 +44,15 @@ function Home() {
           <Button onClick={handleGoToProducts}>See Products</Button>
         </motion.div>
 
-        {/* <Brands /> */}
-
         <Products />
 
         <Numbers />
+
+        <Brands />
+
+        <Services />
+
+        <Footer />
       </motion.div>
     </>
   );

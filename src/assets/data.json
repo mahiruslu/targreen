@@ -15,7 +15,8 @@
         { "name": "Valves","image": "valves.jpg","desc": "This is a nice product 5" },
         { "name": "Machines","image": "machine.jpg","desc": "This is a nice product 6" }
     ],
-      "products": [
+
+    "products": [
         { 
           "sku": "11232221",
           "title": "abut",
@@ -111,5 +112,23 @@
             "depth": "1.00"
           }
         }
-      ]
+    ],
+
+    "services": [
+      {
+        "name": "Project Design",
+        "image": "Project.svg",
+        "desc": "This is a nice service 1 lorem ipsum pit amet"
+      },
+      {
+        "name": "Product Supply",
+        "image": "Supply.svg",
+        "desc": "This is a nice service 2"
+      },
+      {
+        "name": "Product Information",
+        "image": "Advertise.svg",
+        "desc": "This is a nice service 3"
+      }
+    ]
 }
