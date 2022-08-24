@@ -1,0 +1,77 @@
+@import '../../../assets/styles/_variables.scss';
+
+.faq{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: fit-content;
+    padding: 20px 0;
+    transition: all 0.3s ease-in-out;
+
+    &_list{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        height: fit-content;
+        padding: 20px 0;
+    }
+
+
+    &_question{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: start;
+        margin-bottom: 20px;
+        // background-color: bisque;
+        border-bottom: 1px solid #969892;
+        transition: all 0.3s ease-in-out;
+
+        &_button{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            color: $font-color-dark;
+            margin-bottom: 20px;
+            padding: 20px 0;
+
+            font-size: 1.4rem;
+            // background-color: aqua;
+
+            &_bold{
+                font-size: 1.5rem;
+                font-weight: 1000;
+            }
+
+        }
+        
+        &_desc{
+            font-size: 1.1rem;
+            color:black;
+
+            &_show{
+
+            }
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    .faq{
+        &_question{
+            width: 100%;
+        }
+    }
+}

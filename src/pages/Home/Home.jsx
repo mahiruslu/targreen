@@ -12,6 +12,7 @@ import Products from "../../components/Home/Products/Products";
 import Footer from "../../components/Footer/Footer";
 import Loader from "../../components/Loader/Loader";
 import Services from "../../components/Home/Services/Services";
+import Faqs from "../../components/Home/Faqs/Faqs";
 
 function Home() {
   const navigate = useNavigate();
@@ -38,9 +39,13 @@ function Home() {
           transition={{ duration: 1 }}
           className={Styles.home_welcome}
         >
-          <h1>Welcome to targreen</h1>
-          <h2>We take farming, irrigation, and spraying to the next level</h2>
-          <p>Unlimited solutions for your farming needs.</p>
+          <h1 className={Styles.home_welcome_title}>Welcome to targreen</h1>
+          <h2 className={Styles.home_welcome_title_sub}>
+            We take farming, irrigation, and spraying to the next level
+          </h2>
+          <p className={Styles.home_welcome_paragraph}>
+            Unlimited solutions for your farming needs.
+          </p>
           <Button onClick={handleGoToProducts}>See Products</Button>
         </motion.div>
 
@@ -52,7 +57,9 @@ function Home() {
 
         <Services />
 
-        <Footer />
+        <Faqs />
+
+        {/* <Footer /> */}
       </motion.div>
     </>
   );

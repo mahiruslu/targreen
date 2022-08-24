@@ -52,17 +52,14 @@ function Numbers() {
       <div ref={ref} className={classNames("container", [Styles.numbers])}>
         <motion.div animate={animation} className={Styles.numbers_left}>
           <h3 className={Styles.numbers_left_title}>TAR GREEN</h3>
-          <p>
+          <p className={Styles.numbers_left_desc}>
             We provide everything from new construction irrigation design and
             installation to maintenance for residential and commercial
-            properties.
-          </p>
-          <p>
-            We are one of only a few that truly specialize in irrigation. If
-            you’re a detail minded person, our attention to detail far exceeds
-            the rest. Our design standards, high quality workmanship, vast
-            knowledge of cutting edge smart technology, expertise, and honesty
-            sets us apart.
+            properties. We are one of only a few that truly specialize in
+            irrigation. If you’re a detail minded person, our attention to
+            detail far exceeds the rest. Our design standards, high quality
+            workmanship, vast knowledge of cutting edge smart technology,
+            expertise, and honesty sets us apart.
           </p>
         </motion.div>
         <div ref={refItem} className={Styles.numbers_right}>

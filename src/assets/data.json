@@ -130,5 +130,20 @@
         "image": "Advertise.svg",
         "desc": "This is a nice service 3"
       }
+    ],
+
+    "faqs": [
+      {
+        "question": "q1 lorem ipsum pit amet",
+        "answer": "This is a nice service 1 lorem ipsum pit amet"
+      },
+      {
+        "question": "q2 lorem ipsum pit amet",
+        "answer": "This is a nice service 1 lorem ipsum pit amet"
+      },
+      {
+        "question": "q3 lorem ipsum pit amet",
+        "answer": "This is a nice service 1 lorem ipsum pit amet"
+      }
     ]
 }
