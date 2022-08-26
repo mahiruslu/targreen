@@ -45,19 +45,22 @@
             color: $font-color-dark;
             margin-bottom: 20px;
             padding: 20px 0;
-
             font-size: 1.4rem;
-            // background-color: aqua;
-
 
             &_bold{
                 font-size: 1.5rem;
                 font-weight: 1000;
             }
 
-            &_rotate{
-                transform: rotate(90deg);
-                transition: all 0.5s ease-in-out;
+            &_icon{
+                width: 24px;
+                height: 24px;
+                transition: all 0.3s ease-in-out;
+                
+                &_rotate{
+                    transform: rotate(90deg);
+                    transition: all 0.5s ease-in-out;
+                }
             }
 
         }

@@ -5,6 +5,11 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { brands } from "../../../assets/data.json";
 import { FaMailBulk, FaMailchimp } from "react-icons/fa";
+import {
+  toastifySuccess,
+  ToastContainer,
+  toastifyError,
+} from "../../../utils/hooks/useToastify";
 
 function Subscription() {
   const [ref, inView] = useInView({
@@ -33,6 +38,7 @@ function Subscription() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("submitted");
+    toastifySuccess("Subscribed Successfully");
   };
 
   return (
@@ -55,7 +61,7 @@ function Subscription() {
             className={Styles.subscription_form_form}
             onSubmit={handleSubmit}
           >
-            <FaMailBulk className={Styles.subscription_form_form_icon} />
+            {/* <FaMailBulk className={Styles.subscription_form_form_icon} /> */}
             <input
               type="text"
               placeholder="Enter your email"
@@ -67,6 +73,7 @@ function Subscription() {
           </form>
         </div>
       </motion.div>
+      <ToastContainer draggablePercent={60} />
     </div>
   );
 }

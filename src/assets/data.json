@@ -1,5 +1,8 @@
 {
     "brands": ["tarsu", "şusu", "busu", "o da su", "alla alla bu da mı su"],
+
+    "costumers": ["tarsu", "şusu", "busu", "o da su", "alla alla bu da mı su"],
+
     "numbers": [
         { "name": "Irrigation System Installations", "number": 120 },
         { "name": "Team Members", "number": 16 },

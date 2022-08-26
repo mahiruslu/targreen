@@ -15,8 +15,11 @@ import { faMailBulk, faPhone } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames/bind";
 import { useForm } from "react-hook-form";
 import emailjs from "emailjs-com";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.min.css";
+import {
+  toastifySuccess,
+  ToastContainer,
+  toastifyError,
+} from "../../utils/hooks/useToastify";
 
 function Contact() {
   const {
@@ -29,32 +32,6 @@ function Contact() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const toastifySuccess = () => {
-    toast.success("We got your message! Shortly you'll be hear from us.", {
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      className: "submit-feedback success",
-      toastId: "notifyToast",
-    });
-  };
-  const toastifyError = () => {
-    toast.error(
-      "The message can't send. You can try again later or use another option.",
-      {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        className: "submit-feedback error",
-        toastId: "notifyToast",
-      }
-    );
-  };
   const onSubmit = async (data) => {
     setIsSubmitting(true);
 
@@ -74,10 +51,12 @@ function Contact() {
         "user_xB9Qf7kX1ChmxddSmBRip"
       );
       reset();
-      toastifySuccess();
+      toastifySuccess("We got your message! Shortly you'll be hear from us.");
     } catch (e) {
       console.log(`e`, e.message);
-      toastifyError();
+      toastifyError(
+        "The message can't send. You can try again later or use another option."
+      );
     }
     setIsSubmitting(false);
   };

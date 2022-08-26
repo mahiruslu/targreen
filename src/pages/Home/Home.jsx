@@ -7,6 +7,7 @@ import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
 
 import Brands from "../../components/Home/Brands/Brands";
+import Customers from "../../components/Home/Customers/Customers";
 import Numbers from "../../components/Home/Numbers/Numbers";
 import Products from "../../components/Home/Products/Products";
 import Footer from "../../components/Footer/Footer";
@@ -54,7 +55,9 @@ function Home() {
 
         <Numbers />
 
-        <Brands />
+        {/* <Brands /> */}
+
+        <Customers />
 
         <Services />
 

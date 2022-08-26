@@ -30,8 +30,8 @@ function Services() {
   }, [inView]);
 
   return (
-    <div id="products" className={Styles.container}>
-      <div
+    <div ref={ref} id="products" className={Styles.container}>
+      <motion.div
         animate={animation}
         className={classNames("container", [Styles.services])}
       >
@@ -44,10 +44,9 @@ function Services() {
           </p>
         </div>
 
-        <div ref={ref} className={Styles.services_bottom}>
+        <div className={Styles.services_bottom}>
           {services.map((service, index) => (
-            <motion.div
-              animate={animation}
+            <div
               className={classNames(Styles.services_bottom_service, {
                 [Styles.services_bottom_service_reverse]: index % 2 != 0,
               })}
@@ -73,10 +72,10 @@ function Services() {
                   {service.desc}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

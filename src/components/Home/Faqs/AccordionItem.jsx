@@ -27,8 +27,8 @@ function AccordionItem({
         {item.question}
 
         <FaArrowRight
-          className={classNames({
-            [Styles.faq_question_button_rotate]: ariaExpanded,
+          className={classNames(Styles.faq_question_button_icon,{
+            [Styles.faq_question_button_icon_rotate]: ariaExpanded,
           })}
         />
       </button>
