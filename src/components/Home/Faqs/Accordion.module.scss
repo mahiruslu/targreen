@@ -49,9 +49,15 @@
             font-size: 1.4rem;
             // background-color: aqua;
 
+
             &_bold{
                 font-size: 1.5rem;
                 font-weight: 1000;
+            }
+
+            &_rotate{
+                transform: rotate(90deg);
+                transition: all 0.5s ease-in-out;
             }
 
         }

@@ -16,9 +16,9 @@ const Accordion = ({ data }) => {
         ariaExpanded={ariaExpanded}
         item={item}
         index={index}
+        key={index}
         onClick={() => {
           setActiveIndex(index);
-          console.log(activeIndex);
         }}
       />
     );

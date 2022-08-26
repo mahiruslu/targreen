@@ -36,7 +36,9 @@ function Brands() {
         className={classNames("container", [Styles.brands])}
       >
         {brands.map((brand) => (
-          <div className={Styles.brands_brand}>{brand}</div>
+          <div className={Styles.brands_brand} key={brand}>
+            {brand}
+          </div>
         ))}
       </motion.div>
     </div>

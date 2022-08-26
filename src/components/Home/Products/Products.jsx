@@ -51,7 +51,6 @@ function Products() {
   const [selected, setSelected] = useState(0);
 
   useEffect(() => {
-    console.log(selected);
     animationImage.set({ opacity: 0, scale: 0.75 });
     animationImage.start({
       opacity: 1,
@@ -72,11 +71,11 @@ function Products() {
             <div
               className={Styles.products_bottom_product}
               onClick={() => setSelected(index)}
+              key={index}
             >
               <motion.div
                 custom={index}
                 animate={animationItem}
-                key={index}
                 className={classNames([
                   Styles.products_bottom_product_name,
                   {

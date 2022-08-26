@@ -1,0 +1,111 @@
+@import '../../../assets/styles/_variables.scss';
+
+.container{
+    width: 100%;
+    height: fit-content;
+    padding: 30px 0;
+    background-color: $tertiary-color;
+
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1280' height='768' preserveAspectRatio='none' viewBox='0 0 1280 768'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1088%26quot%3b)' fill='none'%3e%3crect width='1280' height='768' x='0' y='0' fill='rgba(156%2c 190%2c 160%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c507.602C93.151%2c500.412%2c147.156%2c401.787%2c225.521%2c350.918C303.407%2c300.36%2c418.236%2c293.046%2c459.031%2c209.632C499.825%2c126.22%2c452.082%2c28.032%2c427.183%2c-61.42C405.107%2c-140.728%2c383.493%2c-224.085%2c322.817%2c-279.723C264.82%2c-332.905%2c176.468%2c-324.458%2c104.827%2c-357.009C17.005%2c-396.912%2c-48.49%2c-501.613%2c-144.476%2c-492.041C-239.468%2c-482.568%2c-309.428%2c-392.572%2c-358.667%2c-310.787C-403.731%2c-235.938%2c-391.669%2c-144.567%2c-405.603%2c-58.317C-419.84%2c29.807%2c-471.016%2c117.374%2c-441.445%2c201.601C-411.29%2c287.491%2c-323.878%2c335.692%2c-249.064%2c387.551C-171.754%2c441.14%2c-93.788%2c514.841%2c0%2c507.602' fill='%235f9064'%3e%3c/path%3e%3cpath d='M1280 1226.866C1363.953 1218.164 1423.924 1146.937 1488.933 1093.107 1546.474 1045.461 1603.559 997.8340000000001 1637.171 931.115 1671.666 862.642 1695.858 785.602 1681.8220000000001 710.227 1668.018 636.097 1603.943 586.424 1561.393 524.172 1512.326 452.385 1495.595 342.342 1412.613 316.361 1329.843 290.446 1255.839 377.863 1172.669 402.465 1089.731 426.998 987.412 400.483 925.177 460.544 862.53 521.002 850.637 620.338 856.932 707.172 862.6179999999999 785.609 927.28 842.654 958.121 914.9970000000001 990.0640000000001 989.925 982.745 1082.834 1041.243 1139.513 1103.364 1199.702 1193.964 1235.784 1280 1226.866' fill='%23dde9de'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1088'%3e%3crect width='1280' height='768' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+}
+
+.subscription{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 350px;
+    gap: 30px;
+    // border-top: 1px solid #969892;
+    // border-bottom: 1px solid #969892;
+    // margin:  10px 0;
+
+    
+
+    &_header{
+
+
+        &_title{
+            color: $accent-color;
+            font-size: x-large;
+            font-weight: bolder;
+        }
+    }
+
+    &_form{
+        max-width: 50%;
+        min-width: 600px;
+        height: 80px;
+
+        &_form{
+            display: grid;
+            grid-template-columns: 1fr 7fr 2fr;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            gap: 10px;
+            border-radius: 10px;
+            background-color: white;
+
+            &_icon{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 80%;
+                height: 80%;
+                border-radius: 10px;
+                color: $tertiary-color;
+                padding-left:10px;
+            }
+
+            &_input{
+                width: 100%;
+                height: 100%;
+                border: none;
+                border-radius: 10px;
+                background-color: white;
+                font-size: large;
+                font-weight: bolder;
+                text-align: start;
+                padding: 0;
+                margin: 0;
+
+                &:focus{
+                    outline: none;
+                }
+            }
+            &_button{
+                width: 90%;
+                height: 80%;
+                border: none;
+                border-radius: 10px;
+                background-color: $tertiary-color;
+                color: white;
+                font-size: large;
+                font-weight: bolder;
+                cursor: pointer;
+                outline: none;
+                transition: all 0.3s ease-in-out;
+                &:hover{
+                    background-color: $accent-color;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 768px) {
+    .subscription{
+        flex-direction: column;
+        height: fit-content;
+        padding: 30px 0;
+    }
+    
+}

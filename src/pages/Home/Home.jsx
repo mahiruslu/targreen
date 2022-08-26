@@ -13,6 +13,7 @@ import Footer from "../../components/Footer/Footer";
 import Loader from "../../components/Loader/Loader";
 import Services from "../../components/Home/Services/Services";
 import Faqs from "../../components/Home/Faqs/Faqs";
+import Subscription from "../../components/Home/Subscription/Subscription";
 
 function Home() {
   const navigate = useNavigate();
@@ -58,6 +59,8 @@ function Home() {
         <Services />
 
         <Faqs />
+
+        <Subscription />
 
         {/* <Footer /> */}
       </motion.div>
