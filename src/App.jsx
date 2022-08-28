@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home";
 import Error from "./pages/Error/Error";
 import Layout from "./components/layout/Layout";
 import Contact from "./pages/Contact/Contact";
+import About from "./pages/About/About";
 import useScrollToTop from "./utils/hooks/useScrollToTop";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Error />} />
       </Routes>
