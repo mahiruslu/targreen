@@ -18,8 +18,8 @@ function Customers() {
         scale: 1,
         transition: {
           type: "spring",
-          duration: 1,
-          bounce: 0.5,
+          duration: 2,
+          bounce: 0.3,
         },
       });
     } else {

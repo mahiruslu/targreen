@@ -18,8 +18,8 @@ function Services() {
         scale: 1,
         transition: {
           type: "spring",
-          duration: 1,
-          bounce: 0.4,
+          duration: 2,
+          bounce: 0.3,
         },
       });
     } else {
@@ -56,6 +56,7 @@ function Services() {
                 <img
                   src={window.location.origin + "/assets/svg/" + service.image}
                   alt={service.title}
+                  loading="lazy"
                 />
               </div>
               <div

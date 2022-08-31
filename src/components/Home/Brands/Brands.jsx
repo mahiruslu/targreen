@@ -15,16 +15,16 @@ function Brands() {
   useEffect(() => {
     if (inViewBrands) {
       animationBrands.start({
-        x: 0,
+        scale: 1,
         transition: {
           type: "spring",
-          duration: 1,
-          bounce: 0.5,
+          duration: 2,
+          bounce: 0.3,
         },
       });
     } else {
       animationBrands.start({
-        x: "-100vw",
+        scale: 0,
       });
     }
   }, [inViewBrands]);

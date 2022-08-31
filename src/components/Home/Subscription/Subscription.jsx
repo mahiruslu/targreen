@@ -21,16 +21,16 @@ function Subscription() {
   useEffect(() => {
     if (inView) {
       animation.start({
-        x: 0,
+        scale: 1,
         transition: {
           type: "spring",
-          duration: 1,
-          bounce: 0.5,
+          duration: 2,
+          bounce: 0.3,
         },
       });
     } else {
       animation.start({
-        x: "-100vw",
+        scale: 0,
       });
     }
   }, [inView]);
@@ -48,10 +48,10 @@ function Subscription() {
         className={classNames("container", [Styles.subscription])}
       >
         <div className={Styles.subscription_header}>
-          <h1 className={Styles.subscription_header_title}>
+          <h2 className={Styles.subscription_header_title}>
             Subscribe to our newsletter
-          </h1>
-          <p className={Styles.subscription_header_paragraph}>
+          </h2>
+          <p className={Styles.subscription_header_desc}>
             Get the latest news and updates on our products, and services. We
             hate spam too, so don't worry about it.
           </p>
@@ -64,6 +64,7 @@ function Subscription() {
             {/* <FaMailBulk className={Styles.subscription_form_form_icon} /> */}
             <input
               type="text"
+              id="email"
               placeholder="Enter your email"
               className={Styles.subscription_form_form_input}
             />

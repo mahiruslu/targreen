@@ -34,8 +34,13 @@
 
         &_title{
             color: $accent-color;
-            font-size: x-large;
+            font-size: 2rem;
             font-weight: bolder;
+        }
+
+        &_desc{
+            color: $font-color-dark;
+            font-size: 1.3rem;
         }
     }
 

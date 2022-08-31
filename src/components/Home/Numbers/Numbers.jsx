@@ -33,16 +33,16 @@ function Numbers() {
     }
     if (inView) {
       animation.start({
-        x: 0,
+        scale: 1,
         transition: {
           type: "spring",
-          duration: 1,
-          bounce: 0.1,
+          duration: 2,
+          bounce: 0.3,
         },
       });
     } else {
       animation.start({
-        x: "-100vw",
+        scale: 0,
       });
     }
   }, [inViewItem, inView]);

@@ -34,16 +34,16 @@ function Products() {
     }
     if (inView) {
       animation.start({
-        x: 0,
+        scale: 1,
         transition: {
           type: "spring",
-          duration: 1,
-          bounce: 0.1,
+          duration: 2,
+          bounce: 0.3,
         },
       });
     } else {
       animation.start({
-        x: "100vw",
+        scale: 0,
       });
     }
   }, [inViewItem, inView]);
@@ -92,7 +92,7 @@ function Products() {
         </div>
         <div ref={ref} className={Styles.products_top}>
           <motion.div
-            // animate={animation}
+            animate={animation}
             className={Styles.products_top_product}
           >
             <div className={Styles.products_top_product_desc}>
@@ -109,6 +109,7 @@ function Products() {
                   product_groups[selected].image
                 }
                 alt={product_groups[selected].name}
+                loading="lazy"
               />
             </motion.div>
             <p>Click the image to see products</p>
