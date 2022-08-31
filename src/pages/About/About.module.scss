@@ -1,20 +1,74 @@
-@import "../../assets/styles/variables";
+@import "../../assets/styles/_variables.scss";
 
 .page{
-    position: absolute;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
     scroll-behavior: smooth;
     height: 100vh;
     width: 100vw;
+    padding-top: 100px;
 
-    background-image: url("../../assets/images/about.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    &_left{
 
+
+    &_top{
+        height: 300px;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+
+        h2{
+            color: $accent-color;
+            font-size: 1.75rem;
+        }
+        p{
+            font-size: 1.25rem;
+        }
+    }
+
+    &_middle{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 90%;
+        height: 100vh;
+        padding: 0;
+        margin: 10px;
+        gap: 10px;
+
+        &_left{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            flex: 3;
+            height: 100%;
+            min-width: 450px;
+            background-color: $base-color;
+            border-radius: 10px;
+
+            background-image: url("../../assets/images/about.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        &_right{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex: 5;
+            height: 100%;
+        }
     }
 
 }

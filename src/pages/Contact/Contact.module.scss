@@ -17,11 +17,12 @@
     align-items: center;
     text-align: center;
 
+    h2{
+        color: $accent-color;
+        font-size: 1.75rem;
+    }
     p{
         font-size: 1.25rem;
-    }
-    h2{
-        font-size: 1.75rem;
     }
 }
 
