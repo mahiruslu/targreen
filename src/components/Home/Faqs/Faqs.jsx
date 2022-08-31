@@ -9,7 +9,7 @@ import Accordion from "../../../components/Home/Faqs/Accordion";
 
 function Faqs() {
   const [ref, inView] = useInView({
-    threshold: 0.2,
+    threshold: 0.1,
   });
 
   const animation = useAnimation();
