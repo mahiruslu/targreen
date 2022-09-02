@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Styles from "./About.module.scss";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { workers } from "../../assets/data.json";
 
 import classNames from "classnames/bind";
@@ -11,12 +12,35 @@ import {
 } from "../../utils/hooks/useToastify";
 
 function About() {
+  const [refItem, inViewItem] = useInView({
+    threshold: 0.1,
+  });
+
+  const animationItem = useAnimation();
+
+  useEffect(() => {
+    if (inViewItem) {
+      animationItem.start((i) => ({
+        scale: 1,
+        transition: {
+          type: "spring",
+          duration: 2,
+          bounce: i * 0.1 + 0.1,
+        },
+      }));
+    } else {
+      animationItem.start({
+        scale: 0,
+      });
+    }
+  }, [inViewItem]);
+
   return (
     <motion.div
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 1, bounce: true }}
-      className={Styles.page}
+      className={classNames("container", [Styles.page])}
     >
       <div className={Styles.page_top}>
         <h2>About Us</h2>
@@ -47,9 +71,14 @@ function About() {
             our customers with high qualified and professional teammates.
           </p>
         </div>
-        <div className={Styles.page_bottom_bottom}>
-          {workers.map((worker) => (
-            <div className={Styles.page_bottom_bottom_worker} key={worker.name}>
+        <div ref={refItem} className={Styles.page_bottom_bottom}>
+          {workers.map((worker, index) => (
+            <motion.div
+              custom={index}
+              animate={animationItem}
+              className={Styles.page_bottom_bottom_worker}
+              key={worker.name}
+            >
               <img
                 src={
                   window.location.origin +
@@ -65,10 +94,13 @@ function About() {
                 className={Styles.page_bottom_bottom_worker_image}
               />
               <div className={Styles.page_bottom_bottom_worker_info}>
-                <h3>{worker.name}</h3>
+                <div className={Styles.page_bottom_bottom_worker_info_title}>
+                  <h3>{worker.name}</h3>
+                  <h4>{worker.title}</h4>
+                </div>
                 <p>{worker.desc}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

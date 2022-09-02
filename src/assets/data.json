@@ -4,12 +4,12 @@
     "costumers": ["tarsu", "şusu", "busu", "o da su", "alla alla bu da mı su"],
 
     "workers": [
-      {"name": "Bünyamin Tuncer","desc": "Bünyamin Tuncer is a professional engineer and a farmer. He is the founder of the company and the head of the department.", "image": "bunyamin.jpg"},
-      {"name": "Erol Tuncer","desc": "This is a nice person 1 lorem ipsum pit amet", "image": "erol.jpg"},
-      {"name": "Hasan Tuncer","desc": "This is a nice person 1 lorem ipsum pit amet", "image": "hasan.jpg"},
-      {"name": "Mustafa Öztürk","desc": "This is a nice person 1 lorem ipsum pit amet", "image": "mustafa.jpg"},
-      {"name": "Hamza","desc": "This is a nice person 1 lorem ipsum pit amet", "image": "hamza.jpg"},
-      {"name": "Pelin","desc": "This is a nice person 1 lorem ipsum pit amet", "image": "pelin.jpg"}
+      {"name": "Bünyamin Tuncer", "title": "Engineer" , "desc": "Bünyamin Tuncer is a professional engineer and a farmer. He is the founder of the company and the head of the department.", "image": "bunyamin.jpg"},
+      {"name": "Erol Tuncer", "title": "Engineer" , "desc": "This is a nice person 1 lorem ipsum pit amet", "image": "erol.jpg"},
+      {"name": "Hasan Tuncer", "title": "Engineer" , "desc": "This is a nice person 1 lorem ipsum pit amet", "image": "hasan.jpg"},
+      {"name": "Mustafa Öztürk", "title": "Engineer" , "desc": "This is a nice person 1 lorem ipsum pit amet", "image": "mustafa.jpg"},
+      {"name": "Hamza", "title": "Engineer" , "desc": "This is a nice person 1 lorem ipsum pit amet", "image": "hamza.jpg"},
+      {"name": "Pelin", "title": "Engineer" , "desc": "This is a nice person 1 lorem ipsum pit amet", "image": "pelin.jpg"}
     ],
 
     "numbers": [
