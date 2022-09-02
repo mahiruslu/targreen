@@ -6,14 +6,13 @@
     justify-content: flex-start;
     align-items: center;
     scroll-behavior: smooth;
-    height: 100vh;
     width: 100vw;
     padding-top: 100px;
-
+    gap: 20px;
 
 
     &_top{
-        height: 300px;
+        height: 150px;
         width: 100vw;
         display: flex;
         flex-direction: column;
@@ -22,13 +21,6 @@
         text-align: center;
 
 
-        h2{
-            color: $accent-color;
-            font-size: 1.75rem;
-        }
-        p{
-            font-size: 1.25rem;
-        }
     }
 
     &_middle{
@@ -38,10 +30,10 @@
         justify-content: center;
         text-align: center;
         width: 90%;
-        height: 100vh;
+        height: 600px;
         padding: 0;
         margin: 10px;
-        gap: 10px;
+        gap: 20px;
 
         &_left{
             display: flex;
@@ -65,9 +57,63 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
+            text-align: justify;
             flex: 5;
             height: 100%;
+            font-size: 1.4rem;
+            
+        }
+    }
+
+    &_bottom{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        height: fit-content;
+        padding: 50px;
+        margin-bottom: 50px;
+        gap: 10px;
+
+        &_bottom{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            height: fit-content;
+            padding: 50px;
+            margin-bottom: 50px;
+            gap: 20px;
+
+            &_worker{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                text-align: center;
+                width: 350px;
+                height: 500px;
+                padding: 10px;
+                border-radius: 20px;
+
+                box-shadow: 0px 0px 10px 0px $nice-color;
+
+                &_image{
+                    background-color: azure;
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 50%;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                }
+
+            }
         }
     }
 
@@ -77,12 +123,29 @@ svg{
     max-width: 100%;
 }
 
+
+h2{
+    color: $accent-color;
+    font-size: 1.75rem;
+}
+
+h3{
+    color: $base-color;
+    font-size: 1.5rem;
+}
+
+p{
+    font-size: 1.25rem;
+}
+
+
 @media (max-width: 768px) {
     .page{
         flex-direction: column;
         width: 95%;
         padding: 20px;
         height: fit-content;
+        justify-content: center;
 
         &_middle{
             width: 100%;

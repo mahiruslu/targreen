@@ -121,7 +121,7 @@ function Navbar(props) {
 
           <Link
             className={Styles.nav_item}
-            to="/blog"
+            to="/products"
             onClick={handleMenuClick}
           >
             <span className={Styles.nav_item_title}>Products</span>

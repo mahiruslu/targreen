@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Styles from "./About.module.scss";
 import { motion } from "framer-motion";
+import { workers } from "../../assets/data.json";
 
 import classNames from "classnames/bind";
 import {
@@ -39,8 +40,37 @@ function About() {
         </div>
       </div>
       <div className={Styles.page_bottom}>
-        <div className={Styles.page_bottom_left}></div>
-        <div className={Styles.page_bottom_right}></div>
+        <div className={Styles.page_bottom_top}>
+          <h2>Meet our team</h2>
+          <p>
+            Our mission is to provide the best quality products and services to
+            our customers with high qualified and professional teammates.
+          </p>
+        </div>
+        <div className={Styles.page_bottom_bottom}>
+          {workers.map((worker) => (
+            <div className={Styles.page_bottom_bottom_worker} key={worker.name}>
+              <img
+                src={
+                  window.location.origin +
+                  "/assets/images/workers/" +
+                  worker.image
+                }
+                onError={(e) => {
+                  e.target.src =
+                    window.location.origin +
+                    "/assets/images/workers/worker.jpeg";
+                }}
+                alt="worker"
+                className={Styles.page_bottom_bottom_worker_image}
+              />
+              <div className={Styles.page_bottom_bottom_worker_info}>
+                <h3>{worker.name}</h3>
+                <p>{worker.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </motion.div>
   );

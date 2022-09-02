@@ -3,11 +3,20 @@
 
     "costumers": ["tarsu", "şusu", "busu", "o da su", "alla alla bu da mı su"],
 
+    "workers": [
+      {"name": "Bünyamin Tuncer","desc": "Bünyamin Tuncer is a professional engineer and a farmer. He is the founder of the company and the head of the department.", "image": "bunyamin.jpg"},
+      {"name": "Erol Tuncer","desc": "This is a nice person 1 lorem ipsum pit amet", "image": "erol.jpg"},
+      {"name": "Hasan Tuncer","desc": "This is a nice person 1 lorem ipsum pit amet", "image": "hasan.jpg"},
+      {"name": "Mustafa Öztürk","desc": "This is a nice person 1 lorem ipsum pit amet", "image": "mustafa.jpg"},
+      {"name": "Hamza","desc": "This is a nice person 1 lorem ipsum pit amet", "image": "hamza.jpg"},
+      {"name": "Pelin","desc": "This is a nice person 1 lorem ipsum pit amet", "image": "pelin.jpg"}
+    ],
+
     "numbers": [
-        { "name": "Irrigation System Installations", "number": 120 },
-        { "name": "Team Members", "number": 16 },
-        { "name": "Successful Projects", "number": 250 },
-        { "name": "Years of Experience", "number": 15 }
+        { "name": "System Installations", "number": "1200+" },
+        { "name": "Team Members", "number": "10+" },
+        { "name": "Successful Projects", "number": "250+" },
+        { "name": "Years of Experience", "number": 34 }
       ],
 
     "product_groups": [
