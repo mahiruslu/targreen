@@ -28,10 +28,16 @@
         { "name": "Machines","image": "machine.jpg","desc": "This is a nice product 6" }
     ],
 
+    "product_slides": [
+      { "name": "Sprinkler System","image": "slide1.jpg","desc": "This is a nice product 1" },
+      { "name": "Drip System","image": "slide2.jpg","desc": "This is a nice product 2" },
+      { "name": "Strainer System","image": "slide3.jpg","desc": "This is a nice product 3" }
+    ],
+
     "products": [
         { 
           "sku": "11232221",
-          "title": "abut",
+          "title": "name",
           "description": "lorem ipsum pit amet",
           "image": "abut.jpg",
           "price": "1.00",
@@ -50,7 +56,45 @@
         },
         { 
           "sku": "11232221",
-          "title": "abut",
+          "title": "name",
+          "description": "lorem ipsum pit amet",
+          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
+          "price": "1.00",
+          "category": "adana",
+          "subcategory": "blocks",
+          "inStock": true,
+          "quantity": "1",
+          "brand": "tarsu",
+          "model": "abut",
+          "color": "red",
+          "size": {
+            "width": "1.00",
+            "height": "1.00",
+            "depth": "1.00"
+          }
+        },
+        { 
+          "sku": "11232221",
+          "title": "name",
+          "description": "lorem ipsum pit amet",
+          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
+          "price": "1.00",
+          "category": "konya",
+          "subcategory": "blocks",
+          "inStock": true,
+          "quantity": "1",
+          "brand": "tarsu",
+          "model": "abut",
+          "color": "red",
+          "size": {
+            "width": "1.00",
+            "height": "1.00",
+            "depth": "1.00"
+          }
+        },
+        { 
+          "sku": "11232221",
+          "title": "name",
           "description": "lorem ipsum pit amet",
           "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
           "price": "1.00",
@@ -69,45 +113,7 @@
         },
         { 
           "sku": "11232221",
-          "title": "abut",
-          "description": "lorem ipsum pit amet",
-          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
-          "price": "1.00",
-          "category": "concrete",
-          "subcategory": "blocks",
-          "inStock": true,
-          "quantity": "1",
-          "brand": "tarsu",
-          "model": "abut",
-          "color": "red",
-          "size": {
-            "width": "1.00",
-            "height": "1.00",
-            "depth": "1.00"
-          }
-        },
-        { 
-          "sku": "11232221",
-          "title": "abut",
-          "description": "lorem ipsum pit amet",
-          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
-          "price": "1.00",
-          "category": "concrete",
-          "subcategory": "blocks",
-          "inStock": true,
-          "quantity": "1",
-          "brand": "tarsu",
-          "model": "abut",
-          "color": "red",
-          "size": {
-            "width": "1.00",
-            "height": "1.00",
-            "depth": "1.00"
-          }
-        },
-        { 
-          "sku": "11232221",
-          "title": "abut",
+          "title": "name",
           "description": "lorem ipsum pit amet",
           "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
           "price": "1.00",
