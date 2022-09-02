@@ -88,7 +88,7 @@ function Navbar(props) {
               animate={{ x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <label for="check" className={Styles.nav_item_check}>
+              <label htmlFor="check" className={Styles.nav_item_check}>
                 <input
                   type="checkbox"
                   id="check"
