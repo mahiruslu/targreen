@@ -8,7 +8,7 @@ import {
   toastifyError,
 } from "../../utils/hooks/useToastify";
 
-import { products } from "../../assets/data.json";
+import { products as productsDb } from "../../assets/data.json";
 
 import Select from "react-select";
 import { FaArrowDown, FaSortDown } from "react-icons/fa";
@@ -17,6 +17,7 @@ import Announcements from "../../components/Products/Announcements";
 
 function Products() {
   const [options, setOptions] = useState([]);
+  const [products, setProducts] = useState([]);
   const [sort, setSort] = useState("");
   const [search, setSearch] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -30,19 +31,43 @@ function Products() {
   useEffect(() => {
     let optionsTemp = [];
     let optionsFinal = [];
-    products.map((product) => {
+
+    optionsTemp.push("All");
+    productsDb.map((product) => {
       optionsTemp.push(product.category);
     });
+
     let uniqueOptions = [...new Set(optionsTemp)];
+
     uniqueOptions.map((option) => {
       optionsFinal.push({ value: option, label: option });
     });
 
-    setOptions(optionsFinal);
+    setOptions([...optionsFinal]);
+    setProducts(productsDb);
   }, []);
 
-  const handleOptionsChange = (e) => {
-    console.log(e);
+  const handleFilterChange = (e) => {
+    if (e.value === "All") {
+      setProducts(productsDb);
+    } else {
+      let filteredProducts = productsDb.filter((product) => {
+        return product.category === e.value;
+      });
+      setProducts([...filteredProducts]);
+    }
+  };
+
+  const handleSortChange = async (e) => {
+    let sortedProducts = products.sort((a, b) => {
+      if (e.value === "AZ") {
+        return a.title > b.title ? 1 : -1;
+      } else if (e.value === "ZA") {
+        return a.title < b.title ? 1 : -1;
+      }
+    });
+
+    setProducts([...sortedProducts]);
   };
 
   return (
@@ -51,29 +76,37 @@ function Products() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 1, bounce: true }}
-        className={Styles.page}
+        className={classNames(Styles.page, "container")}
       >
-        <div className={Styles.page_top}>{/* <Announcements /> */}</div>
+        <div className={Styles.page_top}>{<Announcements />}</div>
         <div className={Styles.page_middle}>
           <div className={Styles.page_middle_top}>
             <div className={Styles.page_middle_top_left}>
               Showing {products.length} results
             </div>
             <div className={Styles.page_middle_top_right}>
-              <div className={Styles.page_middle_top_right_item}>
-                <Select
-                  options={options}
-                  onChange={handleOptionsChange}
-                  placeholder="Filter category"
-                />
-              </div>
-              <div className={Styles.page_middle_top_right_item}>
-                <Select
-                  options={sortOptions}
-                  onChange={handleOptionsChange}
-                  placeholder="Sort by"
-                />
-              </div>
+              <Select
+                options={options}
+                onChange={handleFilterChange}
+                placeholder="Filter"
+                className={Styles.page_middle_top_right_item}
+                // styles={{
+                //   option: (provided, state) => (
+                //     console.log(provided, state),
+                //     {
+                //       ...provided,
+                //       color: "#9d5b47",
+                //       backgroundColor: "#eeeada",
+                //     }
+                //   ),
+                // }}
+              />
+              <Select
+                options={sortOptions}
+                onChange={handleSortChange}
+                placeholder="Sort"
+                className={Styles.page_middle_top_right_item}
+              />
             </div>
           </div>
           <div className={Styles.page_middle_bottom}>
@@ -82,7 +115,7 @@ function Products() {
                 // custom={index}
                 // animate={animationItem}
                 className={Styles.page_middle_bottom_product}
-                key={product.name}
+                key={index}
               >
                 <img
                   src={

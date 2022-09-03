@@ -14,21 +14,26 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 // import required modules
-import { EffectFade, Navigation, Pagination } from "swiper";
+import { EffectFade, Navigation, Pagination, Autoplay } from "swiper";
 
 function Announcements() {
   return (
-    <div className={classNames([Styles.announcements, "container"])}>
+    <div className={classNames([Styles.announcements])}>
       <Swiper
         spaceBetween={30}
         loop={true}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
         effect={"fade"}
         navigation={true}
         pagination={{
           clickable: true,
         }}
         color={"#fff"}
-        modules={[EffectFade, Navigation, Pagination]}
+        modules={[EffectFade, Navigation, Pagination, Autoplay]}
+        style={{ borderRadius: "30px", color: "#fff" }}
         className={classNames(Styles.announcements_swiper, "mySwiper")}
       >
         {product_slides.map((slide, index) => {

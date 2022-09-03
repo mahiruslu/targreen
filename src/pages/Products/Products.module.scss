@@ -34,10 +34,10 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        width: 90%;
+        width: 100%;
         height: fit-content;
         margin: 10px;
-        gap: 20px;
+        gap: 10px;
         // background-color: antiquewhite;
 
         &_top{
@@ -46,14 +46,15 @@
             align-items: center;
             justify-content: space-between;
             text-align: center;
-            width: 90%;
+            width: 98%;
+            // max-width: 1520px;
             height: 80px;
             border-radius: 30px;
             padding: 0 50px;
             margin: 10px;
             gap: 50px;
-            background-color: $nice-color;
-            color: $accent-color;
+            background-color: #EEEEEE;
+            color: $font-color-dark;
             font-weight: bold;
             font-size: 1.5rem;
 
@@ -170,12 +171,12 @@ p{
         width: 100%;
         height: fit-content;
         justify-content: center;
-
+        
         &_top{
         }
 
         &_middle{
-            width: 95%;
+            width: 100%;
             flex-direction: column;
             height: fit-content !important;
 

@@ -37,7 +37,7 @@
     "products": [
         { 
           "sku": "11232221",
-          "title": "name",
+          "title": "asd",
           "description": "lorem ipsum pit amet",
           "image": "abut.jpg",
           "price": "1.00",
@@ -56,7 +56,7 @@
         },
         { 
           "sku": "11232221",
-          "title": "name",
+          "title": "fgfd",
           "description": "lorem ipsum pit amet",
           "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
           "price": "1.00",
@@ -75,7 +75,7 @@
         },
         { 
           "sku": "11232221",
-          "title": "name",
+          "title": "csa",
           "description": "lorem ipsum pit amet",
           "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
           "price": "1.00",
@@ -94,7 +94,7 @@
         },
         { 
           "sku": "11232221",
-          "title": "name",
+          "title": "qwe",
           "description": "lorem ipsum pit amet",
           "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
           "price": "1.00",
@@ -113,7 +113,7 @@
         },
         { 
           "sku": "11232221",
-          "title": "name",
+          "title": "fgd",
           "description": "lorem ipsum pit amet",
           "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
           "price": "1.00",
