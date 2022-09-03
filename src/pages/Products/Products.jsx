@@ -29,20 +29,21 @@ function Products() {
 
   useEffect(() => {
     let optionsTemp = [];
+    let optionsFinal = [];
     products.map((product) => {
-      optionsTemp.map((option) => {
-        if (option.value === product.category) {
-          return;
-        } else {
-          return optionsTemp.push({
-            value: product.category,
-            label: product.category,
-          });
-        }
-      });
-    }),
-      setOptions(optionsTemp);
+      optionsTemp.push(product.category);
+    });
+    let uniqueOptions = [...new Set(optionsTemp)];
+    uniqueOptions.map((option) => {
+      optionsFinal.push({ value: option, label: option });
+    });
+
+    setOptions(optionsFinal);
   }, []);
+
+  const handleOptionsChange = (e) => {
+    console.log(e);
+  };
 
   return (
     <div id="products" className={Styles.container}>
@@ -59,11 +60,19 @@ function Products() {
               Showing {products.length} results
             </div>
             <div className={Styles.page_middle_top_right}>
-              <div className={Styles.page_middle_top_filter}>
-                <Select options={options} />
+              <div className={Styles.page_middle_top_right_item}>
+                <Select
+                  options={options}
+                  onChange={handleOptionsChange}
+                  placeholder="Filter category"
+                />
               </div>
-              <div className={Styles.page_middle_top_sort}>
-                <Select options={sortOptions} />
+              <div className={Styles.page_middle_top_right_item}>
+                <Select
+                  options={sortOptions}
+                  onChange={handleOptionsChange}
+                  placeholder="Sort by"
+                />
               </div>
             </div>
           </div>
