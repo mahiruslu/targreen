@@ -126,7 +126,7 @@ function Products() {
                   onError={(e) => {
                     e.target.src =
                       window.location.origin +
-                      "/assets/images/products/placeHolder.png";
+                      "/assets/images/products/placeholder.png";
                   }}
                   alt="product"
                   className={Styles.page_middle_bottom_product_image}
