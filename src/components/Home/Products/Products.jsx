@@ -71,6 +71,7 @@ function Products() {
             <div
               className={Styles.products_bottom_product}
               onClick={() => setSelected(index)}
+              onMouseEnter={() => setSelected(index)}
               key={index}
             >
               <motion.div

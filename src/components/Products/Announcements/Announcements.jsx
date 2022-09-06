@@ -3,7 +3,7 @@ import Styles from "./Announcements.module.scss";
 import { motion } from "framer-motion";
 import classNames from "classnames/bind";
 
-import { product_slides } from "../../assets/data.json";
+import { product_slides } from "../../../assets/data.json";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 

@@ -57,7 +57,7 @@ function Home() {
 
         {/* <Brands /> */}
 
-        <Customers />
+        {/* <Customers /> */}
 
         <Services />
 

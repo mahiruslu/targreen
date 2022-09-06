@@ -30,112 +30,133 @@
 
     &_middle{
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        align-items: flex-start;
         justify-content: center;
         text-align: center;
         width: 100%;
         height: fit-content;
         margin: 10px;
         gap: 10px;
-        // background-color: antiquewhite;
 
-        &_top{
+        &_left{
+            flex: 1;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            text-align: center;
-            width: 98%;
-            // max-width: 1520px;
-            height: 80px;
-            border-radius: 30px;
-            padding: 0 50px;
-            margin: 10px;
-            gap: 50px;
-            background-color: #EEEEEE;
-            color: $font-color-dark;
-            font-weight: bold;
-            font-size: 1.5rem;
-
-            &_left{
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                align-items: center;
-                text-align: center;
-                flex: 1;
-            }
-            &_right{
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-end;
-                align-items: center;
-                text-align: justify;
-                gap: 10px;
-                flex:2;
-
-                &_item{
-                    width: 250px;
-                }
-                
-            }
-        }
-
-      
-
-        &_bottom{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
+            justify-content: flex-start;
             text-align: center;
             width: 100%;
-            height: fit-content;
-            margin: 50px;
-            gap: 30px;
+            height: 100%;
 
-        
+        }
 
-                &_product{
+        &_right{
+                flex: 3;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                text-align: center;
+
+            &_top{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                text-align: center;
+                width: 98%;
+                // max-width: 1520px;
+                height: 80px;
+                border-radius: 30px;
+                padding: 0 50px;
+                gap: 50px;
+                background-color: #EEEEEE;
+                color: $base-color;
+                font-weight: bold;
+                font-size: 1.1rem;
+                box-shadow: 0 0 10px 0 $nice-color;
+
+                &_left{
                     display: flex;
                     flex-direction: column;
                     justify-content: space-around;
                     align-items: center;
                     text-align: center;
-                    width: 350px;
-                    height: 500px;
-                    padding: 10px;
-                    border-radius: 20px;
+                    flex: 1;
+                }
+                &_right{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-end;
+                    align-items: center;
+                    text-align: justify;
+                    gap: 10px;
+                    flex:2;
 
-                    // border: 1px solid $gray-light;
-
-                    box-shadow:  $nice-color 0px 4px 12px;
-
-                    &_image{
-                        background-color: azure;
-                        width: 100%;
-                        height: 200px;
-                        border-radius: 20px;
-                        background-repeat: no-repeat;
-                        background-size: cover;
-                        background-position: center;
+                    &_item{
+                        width: 250px;
                     }
+                    
+                }
+            }
 
-                    &_info{
+        
+
+            &_bottom{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                width: 100%;
+                height: fit-content;
+                margin: 50px;
+                gap: 30px;
+
+            
+
+                    &_product{
                         display: flex;
                         flex-direction: column;
                         justify-content: space-around;
                         align-items: center;
                         text-align: center;
-                        width: 100%;
-                        height: 100%;
-                        gap: 10px;
+                        width: 350px;
+                        height: 500px;
+                        padding: 10px;
+                        border-radius: 20px;
+
+                        // border: 1px solid $gray-light;
+
+                        box-shadow:  $nice-color 0px 4px 12px;
+
+                        &_image{
+                            background-color: azure;
+                            width: 100%;
+                            height: 200px;
+                            border-radius: 20px;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                            background-position: center;
+                        }
+
+                        &_info{
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-around;
+                            align-items: center;
+                            text-align: center;
+                            width: 100%;
+                            height: 100%;
+                            gap: 10px;
+                        }
                     }
-                }
-            
+                
+            }
         }
+
     }
 
 }
@@ -180,19 +201,24 @@ p{
             flex-direction: column;
             height: fit-content !important;
 
-            &_top{
-                flex-direction: column;
-                font-size: 1.1rem;
-                gap: 20px;
-                padding: 10px;
-                height: fit-content;
+            &_right{
 
-                &_left{
-
-                }
-                &_right{
-                    justify-content: center;
+            width: 100%;
+                
+                &_top{
                     flex-direction: column;
+                    font-size: 1.1rem;
+                    gap: 20px;
+                    padding: 10px;
+                    height: fit-content;
+                    
+                    &_left{
+                        
+                    }
+                    &_right{
+                        justify-content: center;
+                        flex-direction: column;
+                    }
                 }
             }
 
