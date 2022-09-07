@@ -48,13 +48,22 @@ function Products() {
     setProducts(productsDb);
   }, []);
 
-  const handleFilterChange = (value) => {
-    console.log(value);
-    if (value === "All") {
-      setProducts(productsDb);
-    } else {
+  const handleFilterChange = (category, subCategory, type) => {
+    console.log(category);
+    if (type === "category") {
+      if (category === "All") {
+        setProducts(productsDb);
+      } else {
+        let filteredProducts = productsDb.filter((product) => {
+          return product.category === category;
+        });
+        setProducts([...filteredProducts]);
+      }
+    } else if (type === "subCategory") {
       let filteredProducts = productsDb.filter((product) => {
-        return product.category === value;
+        return (
+          product.category === category && product.subcategory === subCategory
+        );
       });
       setProducts([...filteredProducts]);
     }
@@ -98,7 +107,9 @@ function Products() {
                 {window.innerWidth < 768 && (
                   <Select
                     options={options}
-                    onChange={handleFilterChange}
+                    onChange={(e) =>
+                      handleFilterChange(e.value, null, "category")
+                    }
                     placeholder="Filter"
                     className={Styles.page_middle_right_top_right_item}
                   />
