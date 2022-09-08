@@ -104,7 +104,7 @@ function Products() {
                 Showing {products.length} result{products.length > 1 && "s"}
               </div>
               <div className={Styles.page_middle_right_top_right}>
-                {window.innerWidth < 768 && (
+                {/* {window.innerWidth < 768 && (
                   <Select
                     options={options}
                     onChange={(e) =>
@@ -113,7 +113,7 @@ function Products() {
                     placeholder="Filter"
                     className={Styles.page_middle_right_top_right_item}
                   />
-                )}
+                )} */}
                 <Select
                   options={sortOptions}
                   onChange={handleSortChange}

@@ -1,12 +1,10 @@
+import classNames from "classnames";
 import React, { useState, useEffect } from "react";
 import {
   FaArrowRight,
-  FaCheckCircle,
   FaCircleNotch,
-  FaCriticalRole,
-  FaDotCircle,
-  FaMinusCircle,
-  FaPlusCircle,
+  FaDashcube,
+  FaSortDown,
 } from "react-icons/fa";
 import Styles from "./TreeView.module.scss";
 
@@ -14,6 +12,7 @@ function TreeView({ data, handleFilterChange }) {
   const [categories, setCategories] = useState([]);
   const [subCategories, setSubCategories] = useState([]);
   const [products, setProducts] = useState([]);
+  const [categoryBody, setCategoryBody] = useState(window.innerWidth > 768);
 
   // console.log(data);
 
@@ -67,19 +66,35 @@ function TreeView({ data, handleFilterChange }) {
     console.log(subCategoriesFinal, "sub");
   }, []);
 
+  const handleCategoryMenu = () => {
+    setCategoryBody(!categoryBody);
+  };
+
   return (
     <div className={Styles.treeview}>
-      <div className={Styles.treeview_header}>
-        <FaCircleNotch />
-        <h2 className={Styles.treeview_header_title}>Categories</h2>
+      <div className={Styles.treeview_header} onClick={handleCategoryMenu}>
+        <div className={Styles.treeview_header_left}>
+          <FaCircleNotch />
+          <h2 className={Styles.treeview_header_title}>Categories</h2>
+        </div>
+        <div className={Styles.treeview_header_right}>
+          <FaSortDown />
+        </div>
       </div>
-      <div className={Styles.treeview_body}>
+      <div
+        className={classNames([
+          Styles.treeview_body,
+          {
+            [Styles.treeview_body_active]: categoryBody,
+          },
+        ])}
+      >
         {subCategories ? (
           subCategories.map((category, index) => {
             return (
               <div className={Styles.treeview_body_item} key={index}>
                 <div className={Styles.treeview_body_item_header}>
-                  <FaPlusCircle
+                  <FaDashcube
                     className={Styles.treeview_body_item_header_icon}
                     onClick={() => console.log("sa")}
                   />
