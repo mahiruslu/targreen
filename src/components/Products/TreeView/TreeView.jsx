@@ -16,36 +16,109 @@ function TreeView({ data, handleFilterChange }) {
 
   // console.log(data);
 
+  // useEffect(() => {
+  //   let categoriesTemp = [];
+  //   let categoriesFinal = [];
+
+  //   categoriesTemp.push("All");
+  //   data.map((product) => {
+  //     categoriesTemp.push(product.category);
+  //   });
+
+  //   let uniqueCategories = [...new Set(categoriesTemp)];
+  //   uniqueCategories.sort();
+
+  //   uniqueCategories.map((option) => {
+  //     categoriesFinal.push(option);
+  //   });
+
+  //   //subcategories
+  //   let subCategoriesTemp = [];
+  //   let subCategoriesFinal = [];
+
+  //   subCategoriesTemp.push({ category: "All", subCategory: "" });
+
+  //   data.map((product) => {
+  //     subCategoriesTemp.filter(
+  //       (item) =>
+  //         (item.category === product.category) &
+  //         (item.subcategory === product.subcategory)
+  //     ).length === 0 &&
+  //       subCategoriesTemp.push({
+  //         category: product.category,
+  //         subCategory: product.subcategory,
+  //       });
+
+  //     // subCategoriesTemp.push({
+  //     //   category: product.category,
+  //     //   subCategory: product.subcategory,
+  //     // });
+  //   });
+
+  //   let uniqueSubCategories = [...new Set(subCategoriesTemp)];
+  //   uniqueSubCategories.sort((a, b) => {
+  //     if (a.category < b.category) {
+  //       return -1;
+  //     } else if (a.category > b.category) {
+  //       return 1;
+  //     } else {
+  //       return 0;
+  //     }
+  //   });
+
+  //   uniqueSubCategories.map((option) => {
+  //     subCategoriesFinal.push(option);
+  //   });
+
+  //   setCategories([...categoriesFinal]);
+  //   setSubCategories([...subCategoriesFinal]);
+
+  //   console.log(categories, "as");
+  //   console.log(subCategoriesFinal, "sub");
+  // }, []);
+
   useEffect(() => {
     let categoriesTemp = [];
     let categoriesFinal = [];
 
-    categoriesTemp.push("All");
-    data.map((product) => {
-      categoriesTemp.push(product.category);
-    });
-
-    let uniqueCategories = [...new Set(categoriesTemp)];
-    uniqueCategories.sort();
-
-    uniqueCategories.map((option) => {
-      categoriesFinal.push(option);
-    });
-
-    let subCategoriesTemp = [];
-    let subCategoriesFinal = [];
-
-    subCategoriesTemp.push({ category: "All", subCategory: "" });
+    categoriesTemp.push({ category: "All", subCategory: [] });
 
     data.map((product) => {
-      subCategoriesTemp.push({
-        category: product.category,
-        subCategory: product.subcategory,
-      });
+      if (
+        categoriesTemp.filter((item) => {
+          return item.category === product.category;
+        }).length === 0
+      ) {
+        categoriesTemp.push({
+          category: product.category,
+          subCategory: [product.subcategory],
+        });
+      } else {
+        console.log(
+          categoriesTemp.filter((item) => {
+            return item.category === product.category;
+          })
+        );
+        if (
+          categoriesTemp.filter((item) => {
+            console.log(item.subCategory.includes(product.subcategory));
+            return (
+              (item.category === product.category) &
+              (item.subCategory.includes(product.subcategory) === false)
+            );
+          })
+        ) {
+          categoriesTemp
+            .filter((item) => {
+              return item.category === product.category;
+            })[0]
+            .subCategory.push(product.subcategory);
+        }
+      }
     });
 
-    let uniqueSubCategories = [...new Set(subCategoriesTemp)];
-    uniqueSubCategories.sort((a, b) => {
+    let uniquecategories = [...new Set(categoriesTemp)];
+    uniquecategories.sort((a, b) => {
       if (a.category < b.category) {
         return -1;
       } else if (a.category > b.category) {
@@ -55,15 +128,11 @@ function TreeView({ data, handleFilterChange }) {
       }
     });
 
-    uniqueSubCategories.map((option) => {
-      subCategoriesFinal.push(option);
+    uniquecategories.map((option) => {
+      categoriesFinal.push(option);
     });
 
     setCategories([...categoriesFinal]);
-    setSubCategories([...subCategoriesFinal]);
-
-    console.log(categories, "as");
-    console.log(subCategoriesFinal, "sub");
   }, []);
 
   const handleCategoryMenu = () => {
@@ -89,8 +158,8 @@ function TreeView({ data, handleFilterChange }) {
           },
         ])}
       >
-        {subCategories ? (
-          subCategories.map((category, index) => {
+        {categories ? (
+          categories.map((category, index) => {
             return (
               <div className={Styles.treeview_body_item} key={index}>
                 <div className={Styles.treeview_body_item_header}>
@@ -106,9 +175,38 @@ function TreeView({ data, handleFilterChange }) {
                     {category.category}
                   </h2>
                 </div>
-                {subCategories ? (
+                {
                   <div className={Styles.treeview_body_item_body}>
-                    {subCategories
+                    {category.subCategory.map((subCategory, index) => {
+                      return (
+                        <div className={Styles.treeview_body_item_body_item}>
+                          <div
+                            className={Styles.treeview_body_item_body_item_icon}
+                          >
+                            <FaArrowRight />
+                          </div>
+                          <h3
+                            className={
+                              Styles.treeview_body_item_body_item_title
+                            }
+                            onClick={() =>
+                              handleFilterChange(
+                                category.category,
+                                subCategory,
+                                "subCategory"
+                              )
+                            }
+                          >
+                            {subCategory}
+                          </h3>
+                        </div>
+                      );
+                    })}
+                  </div>
+                }
+                {/* {categories ? (
+                  <div className={Styles.treeview_body_item_body}>
+                    {categories
                       .filter((item) => {
                         return item.category === category.category;
                       })
@@ -144,7 +242,7 @@ function TreeView({ data, handleFilterChange }) {
                         );
                       })}
                   </div>
-                ) : null}
+                ) : null} */}
               </div>
             );
           })
