@@ -1,357 +1,439 @@
 {
-    "brands": ["tarsu", "şusu", "busu", "o da su", "alla alla bu da mı su"],
-
-    "costumers": ["tarsu", "şusu", "busu", "o da su", "alla alla bu da mı su"],
-
-    "workers": [
-      {"name": "Bünyamin Tuncer", "title": "Engineer" , "desc": "Bünyamin Tuncer is a professional engineer and a farmer. He is the founder of the company and the head of the department.", "image": "bunyamin.jpg"},
-      {"name": "Erol Tuncer", "title": "Engineer" , "desc": "This is a nice person 1 lorem ipsum pit amet", "image": "erol.jpg"},
-      {"name": "Hasan Tuncer", "title": "Engineer" , "desc": "This is a nice person 1 lorem ipsum pit amet", "image": "hasan.jpg"},
-      {"name": "Mustafa Öztürk", "title": "Engineer" , "desc": "This is a nice person 1 lorem ipsum pit amet", "image": "mustafa.png"},
-      {"name": "Hamza", "title": "Engineer" , "desc": "This is a nice person 1 lorem ipsum pit amet", "image": "hamza.jpg"},
-      {"name": "Pelin", "title": "Engineer" , "desc": "This is a nice person 1 lorem ipsum pit amet", "image": "pelin.jpg"}
-    ],
-
-    "numbers": [
-        { "name": "System Installations", "number": "1200+" },
-        { "name": "Team Members", "number": "10+" },
-        { "name": "Successful Projects", "number": "250+" },
-        { "name": "Years of Experience", "number": 34 }
-      ],
-
-    "product_groups": [
-        { "name": "Sprinkler System","image": "spring.jpg","desc": "This is a nice product 1" },
-        { "name": "Drip System","image": "drip.jpg","desc": "This is a nice product 2" },
-        { "name": "Strainer System","image": "filter.jpg","desc": "This is a nice product 3" },
-        { "name": "Pvc Pipes","image": "pipes.jpg","desc": "This is a nice product 4" },
-        { "name": "Valves","image": "valves.jpg","desc": "This is a nice product 5" },
-        { "name": "Machines","image": "machine.jpg","desc": "This is a nice product 6" }
-    ],
-
-    "product_slides": [
-      { "name": "Sprinkler System","image": "slide1.jpg","desc": "This is a nice product 1" },
-      { "name": "Drip System","image": "slide2.jpg","desc": "This is a nice product 2" },
-      { "name": "Strainer System","image": "slide3.jpg","desc": "This is a nice product 3" }
-    ],
-
-    "products": [
-        { 
-          "sku": "11232221",
-          "title": "asd",
-          "description": "lorem ipsum pit amet",
-          "image": "abut.jpg",
-          "price": "1.00",
-          "category": "concrete",
-          "subcategory": "blocks1",
-          "inStock": true,
-          "quantity": "1",
-          "brand": "tarsu",
-          "model": "abut",
-          "color": "red",
-          "size": {
-            "width": "1.00",
-            "height": "1.00",
-            "depth": "1.00"
-          }
-        },
-        { 
-          "sku": "11232221",
-          "title": "fgfd",
-          "description": "lorem ipsum pit amet",
-          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
-          "price": "1.00",
-          "category": "adana",
-          "subcategory": "blocks2",
-          "inStock": true,
-          "quantity": "1",
-          "brand": "tarsu",
-          "model": "abut",
-          "color": "red",
-          "size": {
-            "width": "1.00",
-            "height": "1.00",
-            "depth": "1.00"
-          }
-        },
-        { 
-          "sku": "11232221",
-          "title": "csa",
-          "description": "lorem ipsum pit amet",
-          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
-          "price": "1.00",
-          "category": "konya",
-          "subcategory": "blocks3",
-          "inStock": true,
-          "quantity": "1",
-          "brand": "tarsu",
-          "model": "abut",
-          "color": "red",
-          "size": {
-            "width": "1.00",
-            "height": "1.00",
-            "depth": "1.00"
-          }
-        },
-        { 
-          "sku": "11232221",
-          "title": "qwe",
-          "description": "lorem ipsum pit amet",
-          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
-          "price": "1.00",
-          "category": "concrete",
-          "subcategory": "blocks3",
-          "inStock": true,
-          "quantity": "1",
-          "brand": "tarsu",
-          "model": "abut",
-          "color": "red",
-          "size": {
-            "width": "1.00",
-            "height": "1.00",
-            "depth": "1.00"
-          }
-        },
-        { 
-          "sku": "11232221",
-          "title": "fgd",
-          "description": "lorem ipsum pit amet",
-          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
-          "price": "1.00",
-          "category": "concrete1",
-          "subcategory": "blocks",
-          "inStock": true,
-          "quantity": "1",
-          "brand": "tarsu",
-          "model": "abut",
-          "color": "red",
-          "size": {
-            "width": "1.00",
-            "height": "1.00",
-            "depth": "1.00"
-          }
-        },
-        { 
-          "sku": "11232221",
-          "title": "fgd",
-          "description": "lorem ipsum pit amet",
-          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
-          "price": "1.00",
-          "category": "concrete1",
-          "subcategory": "blocks4",
-          "inStock": true,
-          "quantity": "1",
-          "brand": "tarsu",
-          "model": "abut",
-          "color": "red",
-          "size": {
-            "width": "1.00",
-            "height": "1.00",
-            "depth": "1.00"
-          }
-        },
-        { 
-          "sku": "11232221",
-          "title": "fgd",
-          "description": "lorem ipsum pit amet",
-          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
-          "price": "1.00",
-          "category": "concrete",
-          "subcategory": "blocks4",
-          "inStock": true,
-          "quantity": "1",
-          "brand": "tarsu",
-          "model": "abut",
-          "color": "red",
-          "size": {
-            "width": "1.00",
-            "height": "1.00",
-            "depth": "1.00"
-          }
-        },
-        { 
-          "sku": "11232221",
-          "title": "fgd",
-          "description": "lorem ipsum pit amet",
-          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
-          "price": "1.00",
-          "category": "concrete2",
-          "subcategory": "blocks5",
-          "inStock": true,
-          "quantity": "1",
-          "brand": "tarsu",
-          "model": "abut",
-          "color": "red",
-          "size": {
-            "width": "1.00",
-            "height": "1.00",
-            "depth": "1.00"
-          }
-        },
-        { 
-          "sku": "11232221",
-          "title": "fgd",
-          "description": "lorem ipsum pit amet",
-          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
-          "price": "1.00",
-          "category": "concrete5",
-          "subcategory": "blocks5",
-          "inStock": true,
-          "quantity": "1",
-          "brand": "tarsu",
-          "model": "abut",
-          "color": "red",
-          "size": {
-            "width": "1.00",
-            "height": "1.00",
-            "depth": "1.00"
-          }
-        },
-        { 
-          "sku": "11232221",
-          "title": "fgd",
-          "description": "lorem ipsum pit amet",
-          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
-          "price": "1.00",
-          "category": "concrete6",
-          "subcategory": "blocks6",
-          "inStock": true,
-          "quantity": "1",
-          "brand": "tarsu",
-          "model": "abut",
-          "color": "red",
-          "size": {
-            "width": "1.00",
-            "height": "1.00",
-            "depth": "1.00"
-          }
-        },
-        { 
-          "sku": "11232221",
-          "title": "fgd",
-          "description": "lorem ipsum pit amet",
-          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
-          "price": "1.00",
-          "category": "concrete6",
-          "subcategory": "blocks6",
-          "inStock": true,
-          "quantity": "1",
-          "brand": "tarsu",
-          "model": "abut",
-          "color": "red",
-          "size": {
-            "width": "1.00",
-            "height": "1.00",
-            "depth": "1.00"
-          }
-        },
-        { 
-          "sku": "11232221",
-          "title": "fgd",
-          "description": "lorem ipsum pit amet",
-          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
-          "price": "1.00",
-          "category": "concrete3",
-          "subcategory": "blocks3",
-          "inStock": true,
-          "quantity": "1",
-          "brand": "tarsu",
-          "model": "abut",
-          "color": "red",
-          "size": {
-            "width": "1.00",
-            "height": "1.00",
-            "depth": "1.00"
-          }
-        },
-        { 
-          "sku": "11232221",
-          "title": "fgd",
-          "description": "lorem ipsum pit amet",
-          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
-          "price": "1.00",
-          "category": "concrete7",
-          "subcategory": "blocks7",
-          "inStock": true,
-          "quantity": "1",
-          "brand": "tarsu",
-          "model": "abut",
-          "color": "red",
-          "size": {
-            "width": "1.00",
-            "height": "1.00",
-            "depth": "1.00"
-          }
-        },
-        { 
-          "sku": "11232221",
-          "title": "fgd",
-          "description": "lorem ipsum pit amet",
-          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
-          "price": "1.00",
-          "category": "concrete1",
-          "subcategory": "blocks8",
-          "inStock": true,
-          "quantity": "1",
-          "brand": "tarsu",
-          "model": "abut",
-          "color": "red",
-          "size": {
-            "width": "1.00",
-            "height": "1.00",
-            "depth": "1.00"
-          }
-        },
-        { 
-          "sku": "11232221",
-          "title": "fgd",
-          "description": "lorem ipsum pit amet",
-          "image": "https://www.tarsu.com.tr/images/products/abut.jpg",
-          "price": "1.00",
-          "category": "concrete5",
-          "subcategory": "blocks9",
-          "inStock": true,
-          "quantity": "1",
-          "brand": "tarsu",
-          "model": "abut",
-          "color": "red",
-          "size": {
-            "width": "1.00",
-            "height": "1.00",
-            "depth": "1.00"
-          }
+  "brands":[
+     "tarsu",
+     "şusu",
+     "busu",
+     "o da su",
+     "alla alla bu da mı su"
+  ],
+  "costumers":[
+     "tarsu",
+     "şusu",
+     "busu",
+     "o da su",
+     "alla alla bu da mı su"
+  ],
+  "workers":[
+     {
+        "name":"Bünyamin Tuncer",
+        "title":"Engineer",
+        "desc":"Bünyamin Tuncer is a professional engineer and a farmer. He is the founder of the company and the head of the department.",
+        "image":"bunyamin.jpg"
+     },
+     {
+        "name":"Erol Tuncer",
+        "title":"Engineer",
+        "desc":"This is a nice person 1 lorem ipsum pit amet",
+        "image":"erol.jpg"
+     },
+     {
+        "name":"Hasan Tuncer",
+        "title":"Engineer",
+        "desc":"This is a nice person 1 lorem ipsum pit amet",
+        "image":"hasan.jpg"
+     },
+     {
+        "name":"Mustafa Öztürk",
+        "title":"Engineer",
+        "desc":"This is a nice person 1 lorem ipsum pit amet",
+        "image":"mustafa.png"
+     },
+     {
+        "name":"Hamza",
+        "title":"Engineer",
+        "desc":"This is a nice person 1 lorem ipsum pit amet",
+        "image":"hamza.jpg"
+     },
+     {
+        "name":"Pelin",
+        "title":"Engineer",
+        "desc":"This is a nice person 1 lorem ipsum pit amet",
+        "image":"pelin.jpg"
+     }
+  ],
+  "numbers":[
+     {
+        "name":"System Installations",
+        "number":"1200+"
+     },
+     {
+        "name":"Team Members",
+        "number":"10+"
+     },
+     {
+        "name":"Successful Projects",
+        "number":"250+"
+     },
+     {
+        "name":"Years of Experience",
+        "number":34
+     }
+  ],
+  "services":[
+     {
+        "name":"Project Design",
+        "image":"Project.svg",
+        "desc":"This is a nice service 1 lorem ipsum pit amet"
+     },
+     {
+        "name":"Product Supply",
+        "image":"Supply.svg",
+        "desc":"This is a nice service 2"
+     },
+     {
+        "name":"Product Information",
+        "image":"Advertise.svg",
+        "desc":"This is a nice service 3"
+     }
+  ],
+  "faqs":[
+     {
+        "question":"q1 lorem ipsum pit amet",
+        "answer":"This is a nice service 1 lorem ipsum pit amet"
+     },
+     {
+        "question":"q2 lorem ipsum pit amet",
+        "answer":"This is a nice service 1 lorem ipsum pit amet"
+     },
+     {
+        "question":"q3 lorem ipsum pit amet",
+        "answer":"This is a nice service 1 lorem ipsum pit amet"
+     }
+  ],
+  "product_groups":[
+     {
+        "name":"Sprinkler System",
+        "image":"spring.jpg",
+        "desc":"This is a nice product 1"
+     },
+     {
+        "name":"Drip System",
+        "image":"drip.jpg",
+        "desc":"This is a nice product 2"
+     },
+     {
+        "name":"Strainer System",
+        "image":"filter.jpg",
+        "desc":"This is a nice product 3"
+     },
+     {
+        "name":"Pvc Pipes",
+        "image":"pipes.jpg",
+        "desc":"This is a nice product 4"
+     },
+     {
+        "name":"Valves",
+        "image":"valves.jpg",
+        "desc":"This is a nice product 5"
+     },
+     {
+        "name":"Machines",
+        "image":"machine.jpg",
+        "desc":"This is a nice product 6"
+     }
+  ],
+  "product_slides":[
+     {
+        "name":"Sprinkler System",
+        "image":"slide1.jpg",
+        "desc":"This is a nice product 1"
+     },
+     {
+        "name":"Drip System",
+        "image":"slide2.jpg",
+        "desc":"This is a nice product 2"
+     },
+     {
+        "name":"Strainer System",
+        "image":"slide3.jpg",
+        "desc":"This is a nice product 3"
+     }
+  ],
+  "products":[
+     {
+        "sku":"11232221",
+        "title":"asd",
+        "description":"lorem ipsum pit amet",
+        "image":"abut.jpg",
+        "price":"1.00",
+        "category":"concrete",
+        "subcategory":"blocks1",
+        "inStock":true,
+        "quantity":"1",
+        "brand":"tarsu",
+        "model":"abut",
+        "color":"red",
+        "size":{
+           "width":"1.00",
+           "height":"1.00",
+           "depth":"1.00"
         }
-    ],
-
-    "services": [
-      {
-        "name": "Project Design",
-        "image": "Project.svg",
-        "desc": "This is a nice service 1 lorem ipsum pit amet"
-      },
-      {
-        "name": "Product Supply",
-        "image": "Supply.svg",
-        "desc": "This is a nice service 2"
-      },
-      {
-        "name": "Product Information",
-        "image": "Advertise.svg",
-        "desc": "This is a nice service 3"
-      }
-    ],
-
-    "faqs": [
-      {
-        "question": "q1 lorem ipsum pit amet",
-        "answer": "This is a nice service 1 lorem ipsum pit amet"
-      },
-      {
-        "question": "q2 lorem ipsum pit amet",
-        "answer": "This is a nice service 1 lorem ipsum pit amet"
-      },
-      {
-        "question": "q3 lorem ipsum pit amet",
-        "answer": "This is a nice service 1 lorem ipsum pit amet"
-      }
-    ]
+     },
+     {
+        "sku":"11232221",
+        "title":"fgfd",
+        "description":"lorem ipsum pit amet",
+        "image":"https://www.tarsu.com.tr/images/products/abut.jpg",
+        "price":"1.00",
+        "category":"adana",
+        "subcategory":"blocks2",
+        "inStock":true,
+        "quantity":"1",
+        "brand":"tarsu",
+        "model":"abut",
+        "color":"red",
+        "size":{
+           "width":"1.00",
+           "height":"1.00",
+           "depth":"1.00"
+        }
+     },
+     {
+        "sku":"11232221",
+        "title":"csa",
+        "description":"lorem ipsum pit amet",
+        "image":"https://www.tarsu.com.tr/images/products/abut.jpg",
+        "price":"1.00",
+        "category":"konya",
+        "subcategory":"blocks3",
+        "inStock":true,
+        "quantity":"1",
+        "brand":"tarsu",
+        "model":"abut",
+        "color":"red",
+        "size":{
+           "width":"1.00",
+           "height":"1.00",
+           "depth":"1.00"
+        }
+     },
+     {
+        "sku":"11232221",
+        "title":"qwe",
+        "description":"lorem ipsum pit amet",
+        "image":"https://www.tarsu.com.tr/images/products/abut.jpg",
+        "price":"1.00",
+        "category":"concrete",
+        "subcategory":"blocks3",
+        "inStock":true,
+        "quantity":"1",
+        "brand":"tarsu",
+        "model":"abut",
+        "color":"red",
+        "size":{
+           "width":"1.00",
+           "height":"1.00",
+           "depth":"1.00"
+        }
+     },
+     {
+        "sku":"11232221",
+        "title":"fgd",
+        "description":"lorem ipsum pit amet",
+        "image":"https://www.tarsu.com.tr/images/products/abut.jpg",
+        "price":"1.00",
+        "category":"concrete1",
+        "subcategory":"blocks",
+        "inStock":true,
+        "quantity":"1",
+        "brand":"tarsu",
+        "model":"abut",
+        "color":"red",
+        "size":{
+           "width":"1.00",
+           "height":"1.00",
+           "depth":"1.00"
+        }
+     },
+     {
+        "sku":"11232221",
+        "title":"fgd",
+        "description":"lorem ipsum pit amet",
+        "image":"https://www.tarsu.com.tr/images/products/abut.jpg",
+        "price":"1.00",
+        "category":"concrete1",
+        "subcategory":"blocks4",
+        "inStock":true,
+        "quantity":"1",
+        "brand":"tarsu",
+        "model":"abut",
+        "color":"red",
+        "size":{
+           "width":"1.00",
+           "height":"1.00",
+           "depth":"1.00"
+        }
+     },
+     {
+        "sku":"11232221",
+        "title":"fgd",
+        "description":"lorem ipsum pit amet",
+        "image":"https://www.tarsu.com.tr/images/products/abut.jpg",
+        "price":"1.00",
+        "category":"concrete",
+        "subcategory":"blocks4",
+        "inStock":true,
+        "quantity":"1",
+        "brand":"tarsu",
+        "model":"abut",
+        "color":"red",
+        "size":{
+           "width":"1.00",
+           "height":"1.00",
+           "depth":"1.00"
+        }
+     },
+     {
+        "sku":"11232221",
+        "title":"fgd",
+        "description":"lorem ipsum pit amet",
+        "image":"https://www.tarsu.com.tr/images/products/abut.jpg",
+        "price":"1.00",
+        "category":"concrete2",
+        "subcategory":"blocks5",
+        "inStock":true,
+        "quantity":"1",
+        "brand":"tarsu",
+        "model":"abut",
+        "color":"red",
+        "size":{
+           "width":"1.00",
+           "height":"1.00",
+           "depth":"1.00"
+        }
+     },
+     {
+        "sku":"11232221",
+        "title":"fgd",
+        "description":"lorem ipsum pit amet",
+        "image":"https://www.tarsu.com.tr/images/products/abut.jpg",
+        "price":"1.00",
+        "category":"concrete5",
+        "subcategory":"blocks5",
+        "inStock":true,
+        "quantity":"1",
+        "brand":"tarsu",
+        "model":"abut",
+        "color":"red",
+        "size":{
+           "width":"1.00",
+           "height":"1.00",
+           "depth":"1.00"
+        }
+     },
+     {
+        "sku":"11232221",
+        "title":"fgd",
+        "description":"lorem ipsum pit amet",
+        "image":"https://www.tarsu.com.tr/images/products/abut.jpg",
+        "price":"1.00",
+        "category":"concrete6",
+        "subcategory":"blocks6",
+        "inStock":true,
+        "quantity":"1",
+        "brand":"tarsu",
+        "model":"abut",
+        "color":"red",
+        "size":{
+           "width":"1.00",
+           "height":"1.00",
+           "depth":"1.00"
+        }
+     },
+     {
+        "sku":"11232221",
+        "title":"fgd",
+        "description":"lorem ipsum pit amet",
+        "image":"https://www.tarsu.com.tr/images/products/abut.jpg",
+        "price":"1.00",
+        "category":"concrete6",
+        "subcategory":"blocks7",
+        "inStock":true,
+        "quantity":"1",
+        "brand":"tarsu",
+        "model":"abut",
+        "color":"red",
+        "size":{
+           "width":"1.00",
+           "height":"1.00",
+           "depth":"1.00"
+        }
+     },
+     {
+        "sku":"11232221",
+        "title":"fgd",
+        "description":"lorem ipsum pit amet",
+        "image":"https://www.tarsu.com.tr/images/products/abut.jpg",
+        "price":"1.00",
+        "category":"concrete3",
+        "subcategory":"blocks3",
+        "inStock":true,
+        "quantity":"1",
+        "brand":"tarsu",
+        "model":"abut",
+        "color":"red",
+        "size":{
+           "width":"1.00",
+           "height":"1.00",
+           "depth":"1.00"
+        }
+     },
+     {
+        "sku":"11232221",
+        "title":"fgd",
+        "description":"lorem ipsum pit amet",
+        "image":"https://www.tarsu.com.tr/images/products/abut.jpg",
+        "price":"1.00",
+        "category":"concrete7",
+        "subcategory":"blocks7",
+        "inStock":true,
+        "quantity":"1",
+        "brand":"tarsu",
+        "model":"abut",
+        "color":"red",
+        "size":{
+           "width":"1.00",
+           "height":"1.00",
+           "depth":"1.00"
+        }
+     },
+     {
+        "sku":"11232221",
+        "title":"fgd",
+        "description":"lorem ipsum pit amet",
+        "image":"https://www.tarsu.com.tr/images/products/abut.jpg",
+        "price":"1.00",
+        "category":"concrete1",
+        "subcategory":"blocks8",
+        "inStock":true,
+        "quantity":"1",
+        "brand":"tarsu",
+        "model":"abut",
+        "color":"red",
+        "size":{
+           "width":"1.00",
+           "height":"1.00",
+           "depth":"1.00"
+        }
+     },
+     {
+        "sku":"11232221",
+        "title":"fgd",
+        "description":"lorem ipsum pit amet",
+        "image":"https://www.tarsu.com.tr/images/products/abut.jpg",
+        "price":"1.00",
+        "category":"concrete5",
+        "subcategory":"blocks9",
+        "inStock":true,
+        "quantity":"1",
+        "brand":"tarsu",
+        "model":"abut",
+        "color":"red",
+        "size":{
+           "width":"1.00",
+           "height":"1.00",
+           "depth":"1.00"
+        }
+     }
+  ]
 }
