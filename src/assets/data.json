@@ -10,47 +10,47 @@
      "tarsu",
      "şusu",
      "busu",
-     "o da su",
+     "o da su", 
      "alla alla bu da mı su"
   ],
   "workers":[
      {
         "name":"Bünyamin Tuncer",
-        "title":"Engineer",
-        "desc":"Bünyamin Tuncer is a professional engineer and a farmer. He is the founder of the company and the head of the department.",
+        "title":"Agricultural Engineer",
+        "desc":"Bünyamin Tuncer is a professional agricultural engineer and a farmer. He is the founder of the company and the head of the department.",
         "image":"bunyamin.jpg"
      },
      {
         "name":"Erol Tuncer",
-        "title":"Engineer",
-        "desc":"This is a nice person 1 lorem ipsum pit amet",
+        "title":"Mechanical Engineer",
+        "desc":"Erol Tuncer is mechanical engineer and works as manager of our factory.",
         "image":"erol.jpg"
      },
      {
         "name":"Hasan Tuncer",
-        "title":"Engineer",
-        "desc":"This is a nice person 1 lorem ipsum pit amet",
+        "title":"Business Manager",
+        "desc":"Hasan Hüseyin Tuncer is business manager and responsible for domestic sales.",
         "image":"hasan.jpg"
      },
      {
         "name":"Mustafa Öztürk",
-        "title":"Engineer",
-        "desc":"This is a nice person 1 lorem ipsum pit amet",
+        "title":"General Coordinator",
+        "desc":"Mustafa Öztürk is general coordinator and works in the sales depertmant.",
         "image":"mustafa.png"
      },
      {
-        "name":"Hamza",
-        "title":"Engineer",
-        "desc":"This is a nice person 1 lorem ipsum pit amet",
+        "name":"Hamza Ömeroğlu",
+        "title":"Export Manager.",
+        "desc":"Hamza Ömeroğlu is export manager and works in sales depertmat.",
         "image":"hamza.jpg"
      },
      {
-        "name":"Pelin",
-        "title":"Engineer",
-        "desc":"This is a nice person 1 lorem ipsum pit amet",
+        "name":"Pelin Sayım",
+        "title":"Agricultural Engineer",
+        "desc":"Pelin Sayım is agricultural engineer works on plant nutrition and fertilizer products.",
         "image":"pelin.jpg"
      }
-  ],
+  ], 
   "numbers":[
      {
         "name":"System Installations",
