@@ -2,19 +2,53 @@ import React, { useState, useEffect } from "react";
 import Styles from "./About.module.scss";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { workers } from "../../assets/data.json";
+// import { workers } from "../../assets/data.json";
+
+import { db, storage } from "../../utils/hooks/useFirebase";
+import { onValue, ref } from "firebase/database";
+import { getDownloadURL, ref as storageRef, listAll } from "firebase/storage";
 
 import classNames from "classnames/bind";
-import {
-  toastifySuccess,
-  ToastContainer,
-  toastifyError,
-} from "../../utils/hooks/useToastify";
 
 function About() {
   const [refItem, inViewItem] = useInView({
     threshold: 0.1,
   });
+  
+  const [workers, setWorkers] = useState([]);
+  // const [imageUrls, setImageUrls] = useState([]);
+
+  // const imagesListRef = storageRef(storage, "workers/");
+  // useEffect(() => {
+  //   listAll(imagesListRef).then((response) => {
+
+  //     response.items.forEach((item) => {
+  //       console.log(item, "item");
+  //       getDownloadURL(item).then((url) => {
+  //         setImageUrls((prev) => [...prev, url]);
+  //       });
+  //     });
+  //   });
+  //   console.log(imageUrls);
+  //   imageUrls.find((item) => {
+  //       console.log(item, "item");
+  //     item === "https://firebasestorage.googleapis.com/v0/b/targreen-1f1d9.appspot.com/o/workers%2Fmustafa.png?alt=media&token=f3a60de1-fc0b-4ab1-84dd-1817eabc2bbc"})
+  // }, []);
+
+  useEffect(() => {
+    const query = ref(db);
+
+    return onValue(query, (snapshot) => {
+      const data = snapshot.val();
+      
+      if (snapshot.exists()) {
+        setWorkers(data["workers"]);
+      }
+    }, (error) => {
+      console.log(error);
+    });
+  }, []);
+
 
   const animationItem = useAnimation();
 
@@ -35,6 +69,9 @@ function About() {
     }
   }, [inViewItem]);
 
+  
+  // 
+
   return (
     <motion.div
       initial={{ y: -100 }}
@@ -44,7 +81,7 @@ function About() {
     >
       <div className={Styles.page_top}>
         <h2>About Us</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam</p>
+        <p></p>
       </div>
       <div className={Styles.page_middle}>
         <div className={Styles.page_middle_left}></div>
@@ -80,11 +117,7 @@ function About() {
               key={worker.name}
             >
               <img
-                src={
-                  window.location.origin +
-                  "/assets/images/workers/" +
-                  worker.image
-                }
+                src={worker?.image}
                 onError={(e) => {
                   e.target.src =
                     window.location.origin +
