@@ -1,0 +1,182 @@
+@import "../../assets/styles/_variables.scss";
+
+.page{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    scroll-behavior: smooth;
+    width: 100vw;
+    height: fit-content;
+    padding-top: 100px;
+    gap: 20px;
+
+
+    &_top{
+        height: 15vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+
+    }
+
+    &_middle{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 90%;
+        height: 600px;
+        padding: 0;
+        margin: 10px;
+        gap: 20px;
+
+        &_left{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            flex: 3;
+            height: 100%;
+            min-width: 450px;
+            background-color: $base-color;
+            border-radius: 10px;
+
+            background-image: url("../../assets/images/about.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        &_right{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: justify;
+            flex: 5;
+            height: 100%;
+            font-size: 1.4rem;
+            
+        }
+    }
+
+    &_bottom{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        height: fit-content;
+        margin: 50px;
+        gap: 10px;
+
+        &_bottom{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            height: fit-content;
+            margin: 50px;
+            gap: 20px;
+
+            &_worker{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                text-align: center;
+                width: 350px;
+                height: 500px;
+                padding: 10px;
+                border-radius: 20px;
+
+                box-shadow: 0px 0px 10px 0px $nice-color;
+
+                &_image{
+                    background-color: azure;
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 50%;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                }
+
+                &_info{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    align-items: center;
+                    text-align: center;
+                    width: 100%;
+                    height: 100%;
+                    gap: 10px;
+                }
+            }
+        }
+    }
+
+}
+
+svg{
+    max-width: 100%;
+}
+
+
+h2{
+    color: $accent-color;
+    font-size: 1.75rem;
+}
+
+h3{
+    color: $base-color;
+    font-size: 1.5rem;
+}
+
+h4{
+    color: $tertiary-color;
+    font-size: 1.2rem;
+}
+
+p{
+    font-size: 1.25rem;
+}
+
+
+@media (max-width: 768px) {
+    .page{
+        flex-direction: column;
+        width: 100%;
+        height: fit-content;
+        justify-content: center;
+
+        &_top{
+        }
+
+        &_middle{
+            width: 100%;
+            flex-direction: column;
+            height: fit-content !important;
+
+            &_left{
+                min-width: 100%;
+            }
+        }
+
+        &_bottom{
+
+        }
+       
+    }
+    
+}

@@ -6,6 +6,7 @@ import Error from "./pages/Error/Error";
 import Layout from "./components/layout/Layout";
 import Products from "./pages/Products/Products";
 import Contact from "./pages/Contact/Contact";
+import Admin from "./pages/Admin/Admin";
 import About from "./pages/About/About";
 import useScrollToTop from "./utils/hooks/useScrollToTop";
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </Layout>
