@@ -8,15 +8,17 @@ import { db, storage } from "../../utils/hooks/useFirebase";
 import { onValue, ref } from "firebase/database";
 import { getDownloadURL, ref as storageRef, listAll } from "firebase/storage";
 
-import {
-  FaUpload,
-  FaCheck,
-  FaExclamationTriangle,
-} from "react-icons/fa";
+import { FaUpload, FaCheck, FaExclamationTriangle } from "react-icons/fa";
 
-import { TextInput, Checkbox, Button, Group, Box,Text  } from '@mantine/core';
-import { Dropzone, IMAGE_MIME_TYPE } from '@mantine/dropzone';
-import { useForm } from '@mantine/form';
+import {
+  toastifySuccess,
+  ToastContainer,
+  toastifyError,  
+} from "../../utils/hooks/useToastify";
+
+import { TextInput, Checkbox, Button, Group, Box, Text } from "@mantine/core";
+import { Dropzone, IMAGE_MIME_TYPE } from "@mantine/dropzone";
+import { useForm } from "@mantine/form";
 
 import WorkerModal from "./Components/WorkerModal";
 
@@ -26,42 +28,6 @@ function Admin() {
   const [refItem, inViewItem] = useInView({
     threshold: 0.1,
   });
-  
-  const [selectedOption, setSelectedOption] = useState([]);
-  // const [imageUrls, setImageUrls] = useState([]);
-
-  // const imagesListRef = storageRef(storage, "workers/");
-  // useEffect(() => {
-  //   listAll(imagesListRef).then((response) => {
-
-  //     response.items.forEach((item) => {
-  //       console.log(item, "item");
-  //       getDownloadURL(item).then((url) => {
-  //         setImageUrls((prev) => [...prev, url]);
-  //       });
-  //     });
-  //   });
-  //   console.log(imageUrls);
-  //   imageUrls.find((item) => {
-  //       console.log(item, "item");
-  //     item === "https://firebasestorage.googleapis.com/v0/b/targreen-1f1d9.appspot.com/o/workers%2Fmustafa.png?alt=media&token=f3a60de1-fc0b-4ab1-84dd-1817eabc2bbc"})
-  // }, []);
-
-  useEffect(() => {
-    const query = ref(db);
-
-    return onValue(query, (snapshot) => {
-      const data = snapshot.val();
-      
-      if (snapshot.exists()) {
-      }
-    }, (error) => {
-      console.log(error);
-    });
-  }, []);
-
-
-
 
   const animationItem = useAnimation();
 
@@ -82,8 +48,22 @@ function Admin() {
     }
   }, [inViewItem]);
 
-  
-  // 
+  useEffect(() => {
+    const query = ref(db);
+
+    return onValue(
+      query,
+      (snapshot) => {
+        const data = snapshot.val();
+
+        if (snapshot.exists()) {
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }, []);
 
   return (
     <motion.div
@@ -98,8 +78,7 @@ function Admin() {
       <div className={Styles.page_middle}>
         <div className={Styles.page_middle_left}></div>
         <div className={Styles.page_middle_right}>
-        <WorkerModal />
-          
+          <WorkerModal />
         </div>
       </div>
       <div className={Styles.page_bottom}>
@@ -107,9 +86,9 @@ function Admin() {
           <h2></h2>
           <p> </p>
         </div>
-        <div ref={refItem} className={Styles.page_bottom_bottom}>
-        </div>
+        <div ref={refItem} className={Styles.page_bottom_bottom}></div>
       </div>
+      <ToastContainer draggablePercent={60} />
     </motion.div>
   );
 }
