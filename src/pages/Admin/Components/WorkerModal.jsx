@@ -1,19 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
-import {
-  TextInput,
-  Button,
-  Group,
-  Box,
-  Text,
-  Progress,
-  FileInput,
-} from "@mantine/core";
-import { Dropzone, IMAGE_MIME_TYPE } from "@mantine/dropzone";
-import { useForm } from "@mantine/form";
-import { openModal } from "@mantine/modals";
-
-// import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import {
   toastifySuccess,
   toastifyError,
@@ -21,27 +8,55 @@ import {
 
 import { FaUpload, FaCheck, FaExclamationTriangle } from "react-icons/fa";
 
+import {
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  FormText,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "reactstrap";
+
 import { db, storage } from "../../../utils/hooks/useFirebase";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { onValue, ref as databaseRef, push } from "firebase/database";
+import {
+  getDownloadURL,
+  ref as storageRef,
+  uploadBytes,
+} from "firebase/storage";
+
+const defaultValues = {
+  name: "",
+  title: "",
+  description: "",
+  image: "",
+};
 
 function WorkerModal() {
+  const [modal, setModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [progress, setProgress] = useState(0);
 
   const [imageUpload, setImageUpload] = useState(null);
   const [imagePath, setImagePath] = useState(null);
 
+  const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
   useEffect(() => {
-    console.log(imageUpload);
+    console.log(imageUpload, "effect");
     // uploadFile();
   }, [imageUpload]);
 
   const uploadFile = () => {
-    console.log("girdi");
     console.log(imageUpload, "in uploadFile");
     if (imageUpload === null) return;
-    console.log("çıktı");
-    const imageRef = ref(
+    const imageRef = storageRef(
       storage,
       `workers/${imageUpload.name + imageUpload.lastModified}`
     );
@@ -49,36 +64,40 @@ function WorkerModal() {
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         setImagePath(url);
-        console.log(imagePath);
+        console.log(url);
       });
     });
   };
 
-  //   const {
-  //     register,
-  //     formState: { errors },
-  //     handleSubmit,
-  //     reset,
-  //     clearErrors,
-  //   } = useForm({ mode: "all" });
+  const saveData = () => {
+    const data = {
+      name,
+      title,
+      description,
+      imagePath,
+    };
+    console.log(databaseRef(db, "workers").child("workers"), "db");
+    databaseRef(db, "workers");
+  };
 
-  const form = useForm({
-    initialValues: {
-      name: "",
-      title: "",
-      desc: "",
-      image: imageUpload,
-    },
-  });
-
-  const onSubmit = async (data) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("handleFormSubmit");
+    console.log(name, title, description, imageUpload);
+    if (
+      name === "" ||
+      title === "" ||
+      description === "" ||
+      imageUpload === ""
+    ) {
+      toastifyError("Please fill all the fields");
+      return;
+    }
     setIsSubmitting(true);
-
-    console.log(data, "data");
-    console.log(imageUpload, "imageUpload");
 
     try {
       uploadFile();
+      saveData();
       console.log("success");
       toastifySuccess("Worker added successfully");
     } catch (e) {
@@ -87,125 +106,62 @@ function WorkerModal() {
         "Something went wrong, please try again later or contact support"
       );
     }
+
     setIsSubmitting(false);
   };
+
   return (
-    <Group position="center">
-      <Button
-        onClick={() => {
-          openModal({
-            title: "Add worker",
-            centered: true,
-            children: (
-              <>
-                <Box sx={{ maxWidth: 300 }} mx="auto">
-                  <form
-                    onSubmit={form.onSubmit((values) => console.log(values))}
-                    noValidate
-                  >
-                    <TextInput
-                      withAsterisk
-                      label="Name"
-                      placeholder="Jon Snow"
-                      {...form.getInputProps("name")}
-                      //   {...register("name", {
-                      //     required: {
-                      //       value: true,
-                      //       message: "You need to fill name.",
-                      //     },
-                      //   })}
-                    />
-                    <TextInput
-                      withAsterisk
-                      label="Title"
-                      placeholder="CEO"
-                      {...form.getInputProps("title")}
-                      //   {...register("title", {
-                      //     required: {
-                      //       value: true,
-                      //       message: "You need to fill title.",
-                      //     },
-                      //   })}
-                    />
-                    <TextInput
-                      withAsterisk
-                      label="Description"
-                      placeholder="lorem ipsum"
-                      {...form.getInputProps("desc")}
-                      //   {...register("desc", {
-                      //     required: {
-                      //       value: true,
-                      //       message: "You need to fill description.",
-                      //     },
-                      //   })}
-                    />
-
-                    <FileInput
-                      label="Image"
-                      withAsterisk
-                      placeholder="Choose image"
-                      //   {...register("image")}
-                      {...form.getInputProps("image", {
-                        type: "file",
-                      })}
-                      onChange={(e) => {
-                        console.log(e);
-                        setImageUpload(e);
-                      }}
-                      accept="image/png,image/jpeg"
-                      type="file"
-                    />
-
-                    {/* <Dropzone
-                      mt="md"
-                      loading={isSubmitting}
-                      multiple={false}
-                      onDrop={(files) => {
-                        setImageUpload(files[0]);
-                        console.log("accepted files", files[0]);
-                      }}
-                      onReject={(files) => console.log("rejected files", files)}
-                      maxSize={2 * 1024 ** 2}
-                      accept={["image/png", "image/jpeg", "image/jpg"]}
-                    >
-                      <Group
-                        position="center"
-                        spacing="m"
-                        style={{ minHeight: 220, pointerEvents: "none" }}
-                      >
-                        <Dropzone.Accept>
-                          <FaCheck />
-                        </Dropzone.Accept>
-                        <Dropzone.Reject>
-                          <FaExclamationTriangle />
-                        </Dropzone.Reject>
-                        <Dropzone.Idle>
-                          <FaUpload />
-                        </Dropzone.Idle>
-
-                        <div>
-                          <Text size="xl" inline>
-                            Drag image here or click to select file
-                          </Text>
-                        </div>
-                      </Group>
-                    </Dropzone> */}
-
-                    <Progress mt="md" value={50}></Progress>
-
-                    <Group position="right" mt="md">
-                      <Button type="submit">Add</Button>
-                    </Group>
-                  </form>
-                </Box>
-              </>
-            ),
-          });
-        }}
-      >
-        Add new worker
-      </Button>
-    </Group>
+    <Form position="center">
+      <Button onClick={() => setModal((prev) => !prev)}>Add new worker</Button>
+      <Modal isOpen={modal} centered>
+        <Form action="/" onSubmit={(e) => handleSubmit(e)} noValidate>
+          <ModalHeader toggle={() => setModal((prev) => !prev)}>
+            Add new worker
+          </ModalHeader>
+          <ModalBody>
+            <FormGroup>
+              <Label>Name</Label>
+              <Input
+                label="Name"
+                placeholder="Jon Snow"
+                onChange={(e) => setName(e.target.value)}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label>Title</Label>
+              <Input
+                label="Title"
+                placeholder="CEO"
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label>Description</Label>
+              <Input
+                label="Description"
+                placeholder="lorem ipsum"
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label>Image</Label>
+              <Input
+                label="Image"
+                placeholder="Choose image"
+                accept="image/png,image/jpeg"
+                type="file"
+                onChange={(e) => {
+                  setImageUpload(e.target.files[0]);
+                }}
+              />
+            </FormGroup>
+          </ModalBody>
+          <ModalFooter>
+            <Button type="submit">Add</Button>
+          </ModalFooter>
+        </Form>
+      </Modal>
+    </Form>
   );
 }
 

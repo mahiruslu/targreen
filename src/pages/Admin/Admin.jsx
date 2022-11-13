@@ -8,17 +8,7 @@ import { db, storage } from "../../utils/hooks/useFirebase";
 import { onValue, ref } from "firebase/database";
 import { getDownloadURL, ref as storageRef, listAll } from "firebase/storage";
 
-import { FaUpload, FaCheck, FaExclamationTriangle } from "react-icons/fa";
-
-import {
-  toastifySuccess,
-  ToastContainer,
-  toastifyError,  
-} from "../../utils/hooks/useToastify";
-
-import { TextInput, Checkbox, Button, Group, Box, Text } from "@mantine/core";
-import { Dropzone, IMAGE_MIME_TYPE } from "@mantine/dropzone";
-import { useForm } from "@mantine/form";
+import { ToastContainer } from "../../utils/hooks/useToastify";
 
 import WorkerModal from "./Components/WorkerModal";
 
