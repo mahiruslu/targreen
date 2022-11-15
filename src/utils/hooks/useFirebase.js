@@ -3,13 +3,14 @@ import { getDatabase } from "firebase/database";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAR8gk0yzKYaaaXt-QLpkTiZLV9YZKJ87I",
-  authDomain: "targreen-1f1d9.firebaseapp.com",
-  databaseURL: "https://targreen-1f1d9-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "targreen-1f1d9",
-  storageBucket: "targreen-1f1d9.appspot.com",
-  messagingSenderId: "526744977279",
-  appId: "1:526744977279:web:fb4dc742e16fbd1586a44a"
+  apiKey: "AIzaSyCHTlDnSq523cRI897tskKu7vBqoW-8EEs",
+  authDomain: "targreen-1cf5e.firebaseapp.com",
+  databaseURL:
+    "https://targreen-1cf5e-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "targreen-1cf5e",
+  storageBucket: "targreen-1cf5e.appspot.com",
+  messagingSenderId: "60603569813",
+  appId: "1:60603569813:web:50df4fb9c77f3f23c7ed9c",
 };
 
 const app = initializeApp(firebaseConfig);
