@@ -1,6 +1,11 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import { getStorage } from "firebase/storage";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCHTlDnSq523cRI897tskKu7vBqoW-8EEs",
@@ -17,5 +22,14 @@ const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
 export const storage = getStorage();
 
+const auth = getAuth();
+
+export const signIn = (email, password) => {
+  return signInWithEmailAndPassword(auth, email, password);
+};
+
+export const signUp = (email, password) => {
+  return createUserWithEmailAndPassword(auth, email, password);
+};
 // console.log(`analytics: ${JSON.stringify(analytics)}`);
 // console.log(`database: ${JSON.stringify(database)}`);

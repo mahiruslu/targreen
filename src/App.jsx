@@ -8,6 +8,8 @@ import Products from "./pages/Products/Products";
 import Contact from "./pages/Contact/Contact";
 import Admin from "./pages/Admin/Admin";
 import About from "./pages/About/About";
+import Auth from "./pages/Admin/Components/Auth";
+
 import useScrollToTop from "./utils/hooks/useScrollToTop";
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/login" element={<Auth />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </Layout>

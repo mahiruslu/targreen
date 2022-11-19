@@ -4,11 +4,14 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 // import { workers } from "../../assets/data.json";
 
+import { useNavigate } from "react-router-dom";
+
 import { db, storage } from "../../utils/hooks/useFirebase";
 import { onValue, ref } from "firebase/database";
 import { getDownloadURL, ref as storageRef, listAll } from "firebase/storage";
 
-import { ToastContainer } from "../../utils/hooks/useToastify";
+import { ToastContainer, toastifyError } from "../../utils/hooks/useToastify";
+import isLoggedIn from "../../utils/hooks/useAuth";
 
 import WorkerModal from "./Components/WorkerModal";
 
@@ -16,6 +19,7 @@ import classNames from "classnames/bind";
 import ProductModal from "./Components/ProductModal";
 
 function Admin() {
+  const navigate = useNavigate();
   const [refItem, inViewItem] = useInView({
     threshold: 0.1,
   });
@@ -38,6 +42,14 @@ function Admin() {
       });
     }
   }, [inViewItem]);
+
+  useEffect(() => {
+    let authToken = sessionStorage.getItem("Auth Token");
+
+    if (!authToken) {
+      navigate("/login");
+    }
+  }, []);
 
   useEffect(() => {
     const query = ref(db);
