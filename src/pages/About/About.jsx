@@ -14,7 +14,7 @@ function About() {
   const [refItem, inViewItem] = useInView({
     threshold: 0.1,
   });
-  
+
   const [workers, setWorkers] = useState([]);
   // const [imageUrls, setImageUrls] = useState([]);
 
@@ -38,17 +38,21 @@ function About() {
   useEffect(() => {
     const query = ref(db);
 
-    return onValue(query, (snapshot) => {
-      const data = snapshot.val();
-      
-      if (snapshot.exists()) {
-        setWorkers(data["workers"]);
-      }
-    }, (error) => {
-      console.log(error);
-    });
-  }, []);
+    return onValue(
+      query,
+      (snapshot) => {
+        const data = snapshot.val();
 
+        if (snapshot.exists()) {
+          console.log(Array.from(Object.values(data.workers)));
+          setWorkers(Array.from(Object.values(data.workers)));
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }, []);
 
   const animationItem = useAnimation();
 
@@ -69,8 +73,7 @@ function About() {
     }
   }, [inViewItem]);
 
-  
-  // 
+  //
 
   return (
     <motion.div

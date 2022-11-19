@@ -29,12 +29,7 @@ import {
   uploadBytes,
 } from "firebase/storage";
 
-const defaultValues = {
-  name: "",
-  title: "",
-  description: "",
-  image: "",
-};
+import { v4 as uuid } from "uuid";
 
 function WorkerModal() {
   const [modal, setModal] = useState(false);
@@ -42,47 +37,46 @@ function WorkerModal() {
   const [progress, setProgress] = useState(0);
 
   const [imageUpload, setImageUpload] = useState(null);
-  const [imagePath, setImagePath] = useState(null);
 
   const [name, setName] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  useEffect(() => {
-    console.log(imageUpload, "effect");
-    // uploadFile();
-  }, [imageUpload]);
-
   const uploadFile = () => {
     console.log(imageUpload, "in uploadFile");
     if (imageUpload === null) return;
-    const imageRef = storageRef(
-      storage,
-      `workers/${imageUpload.name + imageUpload.lastModified}`
-    );
-    console.log(imageRef);
-    uploadBytes(imageRef, imageUpload).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then((url) => {
-        setImagePath(url);
-        console.log(url);
+    const imageRef = storageRef(storage, `workers/${uuid()}`);
+
+    uploadBytes(imageRef, imageUpload)
+      .then((snapshot) => {
+        getDownloadURL(snapshot.ref)
+          .then((url) => {
+            saveData(url);
+          })
+          .catch((error) => {
+            toastifyError(error.message);
+          });
+      })
+      .catch((error) => {
+        toastifyError(error.message);
       });
-    });
   };
 
-  const saveData = () => {
-    const data = {
-      name,
-      title,
-      description,
-      imagePath,
-    };
-
-    set(databaseRef(db, `workers/${data.name}mahir`), {
-      name: "mahir",
-      title: "123",
-      description: "1232",
-      imagePath: data.imagePath,
-    });
+  const saveData = (url) => {
+    set(databaseRef(db, `workers/${uuid()}`), {
+      name: name,
+      title: title,
+      desc: description,
+      image: url,
+    })
+      .then(() => {
+        toastifySuccess("Data saved successfully");
+        setIsSubmitting(false);
+        setModal(false);
+      })
+      .catch((error) => {
+        toastifyError(error.message);
+      });
     databaseRef(db, "workers");
   };
 
@@ -103,7 +97,6 @@ function WorkerModal() {
 
     try {
       uploadFile();
-      saveData();
       console.log("success");
       toastifySuccess("Worker added successfully");
     } catch (e) {
