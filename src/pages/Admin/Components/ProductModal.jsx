@@ -17,7 +17,7 @@ import {
   ModalFooter,
 } from "reactstrap";
 
-import { FaUser } from "react-icons/fa";
+import { FaShoppingBag } from "react-icons/fa";
 
 import { db, storage } from "../../../utils/hooks/useFirebase";
 import { ref as databaseRef, set } from "firebase/database";
@@ -30,13 +30,17 @@ import {
 import { v4 as uuid } from "uuid";
 import Loader from "../../../components/Loader/Loader";
 
-function WorkerModal() {
+function ProductModal() {
   const [modal, setModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [imageUpload, setImageUpload] = useState(null);
 
   const [name, setName] = useState("");
+  const [sku, setSku] = useState("");
+  const [brand, setBrand] = useState("");
+  const [category, setCategory] = useState("");
+  const [subCategory, setSubCategory] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -56,7 +60,7 @@ function WorkerModal() {
       toastifyError("Please select an image");
       return;
     }
-    const imageRef = storageRef(storage, `workers/${uuid()}`);
+    const imageRef = storageRef(storage, `products/${uuid()}`);
 
     uploadBytes(imageRef, imageUpload)
       .then((snapshot) => {
@@ -74,21 +78,25 @@ function WorkerModal() {
   };
 
   const saveData = (url) => {
-    set(databaseRef(db, `workers/${uuid()}`), {
+    set(databaseRef(db, `products/${uuid()}`), {
       name: name,
+      sku: sku,
+      brand: brand,
+      category: category,
+      subcategory: subCategory,
       title: title,
-      desc: description,
+      description: description,
       image: url,
     })
       .then(() => {
-        toastifySuccess("Worker added successfully");
+        toastifySuccess("Product added successfully");
         setModal(false);
         clearValues();
       })
       .catch((error) => {
         toastifyError(error.message);
       });
-    databaseRef(db, "workers");
+    databaseRef(db, "products");
   };
 
   const handleSubmit = (e) => {
@@ -116,22 +124,29 @@ function WorkerModal() {
 
   return (
     <Form position="center">
-      <Button onClick={() => setModal((prev) => !prev)}>
-        <FaUser className="m-1" />
-        Add new worker
+      <Button onClick={() => setModal((prev) => !prev)} className="">
+        <FaShoppingBag className="m-1" />
+        Add new product
       </Button>
       <Modal isOpen={modal} centered>
         <Form action="/" onSubmit={(e) => handleSubmit(e)} noValidate>
           <ModalHeader toggle={() => setModal((prev) => !prev)}>
-            <FaUser className="m-1" />
-            Add new worker
+            <FaShoppingBag /> Add new product
           </ModalHeader>
           <ModalBody>
+            <FormGroup>
+              <Label>Stock Number</Label>
+              <Input
+                label="Stock Number"
+                placeholder="Stock Number"
+                onChange={(e) => setSku(e.target.value)}
+              />
+            </FormGroup>
             <FormGroup>
               <Label>Name</Label>
               <Input
                 label="Name"
-                placeholder="Jon Snow"
+                placeholder="Name"
                 onChange={(e) => setName(e.target.value)}
               />
             </FormGroup>
@@ -139,15 +154,39 @@ function WorkerModal() {
               <Label>Title</Label>
               <Input
                 label="Title"
-                placeholder="CEO"
+                placeholder="Title"
                 onChange={(e) => setTitle(e.target.value)}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label>Brand</Label>
+              <Input
+                label="Brand"
+                placeholder="Brand"
+                onChange={(e) => setBrand(e.target.value)}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label>Category</Label>
+              <Input
+                label="Category"
+                placeholder="Category"
+                onChange={(e) => setCategory(e.target.value)}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label>Sub Category</Label>
+              <Input
+                label="Sub Category"
+                placeholder="Sub Category"
+                onChange={(e) => setSubCategory(e.target.value)}
               />
             </FormGroup>
             <FormGroup>
               <Label>Description</Label>
               <Input
                 label="Description"
-                placeholder=""
+                placeholder="Description"
                 onChange={(e) => setDescription(e.target.value)}
               />
             </FormGroup>
@@ -175,4 +214,4 @@ function WorkerModal() {
   );
 }
 
-export default WorkerModal;
+export default ProductModal;

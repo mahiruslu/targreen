@@ -2,13 +2,10 @@ import React, { useState, useEffect } from "react";
 import Styles from "./About.module.scss";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-// import { workers } from "../../assets/data.json";
-
-import { db, storage } from "../../utils/hooks/useFirebase";
-import { onValue, ref } from "firebase/database";
-import { getDownloadURL, ref as storageRef, listAll } from "firebase/storage";
-
 import classNames from "classnames/bind";
+
+import { db } from "../../utils/hooks/useFirebase";
+import { onValue, ref } from "firebase/database";
 
 function About() {
   const [refItem, inViewItem] = useInView({
@@ -16,24 +13,6 @@ function About() {
   });
 
   const [workers, setWorkers] = useState([]);
-  // const [imageUrls, setImageUrls] = useState([]);
-
-  // const imagesListRef = storageRef(storage, "workers/");
-  // useEffect(() => {
-  //   listAll(imagesListRef).then((response) => {
-
-  //     response.items.forEach((item) => {
-  //       console.log(item, "item");
-  //       getDownloadURL(item).then((url) => {
-  //         setImageUrls((prev) => [...prev, url]);
-  //       });
-  //     });
-  //   });
-  //   console.log(imageUrls);
-  //   imageUrls.find((item) => {
-  //       console.log(item, "item");
-  //     item === "https://firebasestorage.googleapis.com/v0/b/targreen-1f1d9.appspot.com/o/workers%2Fmustafa.png?alt=media&token=f3a60de1-fc0b-4ab1-84dd-1817eabc2bbc"})
-  // }, []);
 
   useEffect(() => {
     const query = ref(db);

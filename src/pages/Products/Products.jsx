@@ -2,19 +2,16 @@ import React, { useState, useEffect } from "react";
 import Styles from "./Products.module.scss";
 import { motion } from "framer-motion";
 import classNames from "classnames/bind";
-import {
-  toastifySuccess,
-  ToastContainer,
-  toastifyError,
-} from "../../utils/hooks/useToastify";
 
-import { products as productsDb } from "../../assets/data.json";
+// import { products as productsDb } from "../../assets/data.json";
 
 import Select from "react-select";
-import { FaArrowDown, FaSortDown } from "react-icons/fa";
 
 import Announcements from "../../components/Products/Announcements/Announcements";
 import TreeView from "../../components/Products/TreeView/TreeView";
+
+import { db, storage } from "../../utils/hooks/useFirebase";
+import { onValue, ref } from "firebase/database";
 
 function Products() {
   const [options, setOptions] = useState([]);
@@ -30,43 +27,63 @@ function Products() {
   ];
 
   useEffect(() => {
+    const query = ref(db);
+
+    return onValue(
+      query,
+      (snapshot) => {
+        const data = snapshot.val();
+
+        if (snapshot.exists()) {
+          console.log(Array.from(Object.values(data.products)));
+          setProducts(Array.from(Object.values(data.products)));
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }, []);
+
+  useEffect(() => {
     let optionsTemp = [];
     let optionsFinal = [];
 
     optionsTemp.push("All");
-    productsDb.map((product) => {
+    products.map((product) => {
       optionsTemp.push(product.category);
     });
 
     let uniqueOptions = [...new Set(optionsTemp)];
 
+    console.log(uniqueOptions);
     uniqueOptions.map((option) => {
       optionsFinal.push({ value: option, label: option });
     });
 
     setOptions([...optionsFinal]);
-    setProducts(productsDb);
+    // setProducts(productsDb);
   }, []);
 
   const handleFilterChange = (category, subCategory, type) => {
     console.log(category);
-    if (type === "category") {
-      if (category === "All") {
-        setProducts(productsDb);
-      } else {
-        let filteredProducts = productsDb.filter((product) => {
-          return product.category === category;
-        });
-        setProducts([...filteredProducts]);
-      }
-    } else if (type === "subCategory") {
-      let filteredProducts = productsDb.filter((product) => {
-        return (
-          product.category === category && product.subcategory === subCategory
-        );
-      });
-      setProducts([...filteredProducts]);
-    }
+    // if (type === "category") {
+    //   if (category === "All") {
+    //     setProducts(productsDb);
+    //   } else {
+    //     let filteredProducts = productsDb.filter((product) => {
+    //       return product.category === category;
+    //     });
+    //     setProducts([...filteredProducts]);
+    //   }
+    // } else if (type === "subCategory") {
+    //   let filteredProducts = productsDb.filter((product) => {
+    //     return (
+    //       product.category === category && product.subcategory === subCategory
+    //     );
+    //   });
+    //   setProducts([...filteredProducts]);
+    // }
   };
 
   const handleSortChange = (e) => {
@@ -92,10 +109,7 @@ function Products() {
         {/* <div className={Styles.page_top}>{<Announcements />}</div> */}
         <div className={Styles.page_middle}>
           <div className={Styles.page_middle_left}>
-            <TreeView
-              data={productsDb}
-              handleFilterChange={handleFilterChange}
-            />
+            <TreeView data={products} handleFilterChange={handleFilterChange} />
           </div>
 
           <div className={Styles.page_middle_right}>
@@ -131,11 +145,7 @@ function Products() {
                   key={index}
                 >
                   <img
-                    src={
-                      window.location.origin +
-                      "/assets/images/products/" +
-                      product.image
-                    }
+                    src={product?.image}
                     onError={(e) => {
                       e.target.src =
                         window.location.origin +

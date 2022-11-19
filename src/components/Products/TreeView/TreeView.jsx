@@ -18,6 +18,7 @@ function TreeView({ data, handleFilterChange }) {
   );
 
   useEffect(() => {
+    console.log(data, "data");
     let categoriesTemp = [];
     let categoriesFinal = [];
 

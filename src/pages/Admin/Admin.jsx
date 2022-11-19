@@ -13,6 +13,7 @@ import { ToastContainer } from "../../utils/hooks/useToastify";
 import WorkerModal from "./Components/WorkerModal";
 
 import classNames from "classnames/bind";
+import ProductModal from "./Components/ProductModal";
 
 function Admin() {
   const [refItem, inViewItem] = useInView({
@@ -68,7 +69,12 @@ function Admin() {
       <div className={Styles.page_middle}>
         <div className={Styles.page_middle_left}></div>
         <div className={Styles.page_middle_right}>
-          <WorkerModal />
+          <div className="m-1">
+            <WorkerModal />
+          </div>
+          <div className="m-1">
+            <ProductModal />
+          </div>
         </div>
       </div>
       <div className={Styles.page_bottom}>
