@@ -22,7 +22,7 @@ import {
 } from "reactstrap";
 
 import { db, storage } from "../../../utils/hooks/useFirebase";
-import { onValue, ref as databaseRef, push } from "firebase/database";
+import { onValue, ref as databaseRef, push, set } from "firebase/database";
 import {
   getDownloadURL,
   ref as storageRef,
@@ -76,7 +76,13 @@ function WorkerModal() {
       description,
       imagePath,
     };
-    console.log(databaseRef(db, "workers").child("workers"), "db");
+
+    set(databaseRef(db, `workers/${data.name}mahir`), {
+      name: "mahir",
+      title: "123",
+      description: "1232",
+      imagePath: data.imagePath,
+    });
     databaseRef(db, "workers");
   };
 
